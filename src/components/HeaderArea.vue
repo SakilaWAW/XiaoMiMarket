@@ -16,7 +16,7 @@
         <li class="split-right"><a href="">注册</a></li>
         <li><a href="">消息通知</a></li>
         <li id="cart">
-          <a id="cart-link" @mouseenter="showPopBlock=true"
+          <a id="cart-link" @mouseenter="showPopBlock=true" :class="{'cart-hover': showPopBlock}"
              @mouseleave="showPopBlock=false" href=""><i class="iconfont">&#xe60f;</i>购物车(0)</a>
           <transition name="toggle">
             <div id="pop-cart-block" @mouseenter="showPopBlock=true"
@@ -90,9 +90,9 @@ export default {
     padding: 0 20px;
     background: #444;
   }
-  #right-header #cart-link:hover {
-    color: #FF6829;
-    background: white;
+  .cart-hover {
+    color: #FF6829 !important;
+    background: white !important;
   }
   @font-face {
     font-family: 'iconfont';  /* project id 552033 */
