@@ -130,14 +130,14 @@ export default {
     font-size: 12px;
   }
   .toggle-enter-active, .toggle-leave-active {
-    transition-property: max-height;
-    transition-duration: .15s;
+    transition-property: height;
+    transition-duration: .3s;
     transition-timing-function: ease-in-out;
   }
   .toggle-enter, .toggle-leave-to {
-    max-height: 0;
+    height: 0 !important;
   }
   .toggle-enter-to, .toggle-leave {
-    max-height: 100px;
+    height: 100px !important;
   }
 </style>
