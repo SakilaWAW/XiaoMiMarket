@@ -18,7 +18,10 @@
         <li id="cart">
           <a id="cart-link" @mouseenter="showPopBlock=true"
              @mouseleave="showPopBlock=false" href=""><i class="iconfont">&#xe60f;</i>购物车(0)</a>
-          <div id="pop-cart-block" v-show="showPopBlock">购物车中还没有商品，赶紧选购吧！</div>
+          <transition name="toggle">
+            <div id="pop-cart-block" @mouseenter="showPopBlock=true"
+                 @mouseleave="showPopBlock=false" v-show="showPopBlock">购物车中还没有商品，赶紧选购吧！</div>
+          </transition>
         </li>
       </ul>
 
@@ -116,6 +119,7 @@ export default {
     right: 15px;
     top: 40px;
     height: 100px;
+    overflow: hidden;
     width: 300px;
     background: white;
     box-shadow: 8px 0 8px -8px #CCC,
@@ -124,5 +128,16 @@ export default {
     text-align: center;
     line-height: 100px;
     font-size: 12px;
+  }
+  .toggle-enter-active, .toggle-leave-active {
+    transition-property: max-height;
+    transition-duration: .15s;
+    transition-timing-function: ease-in-out;
+  }
+  .toggle-enter, .toggle-leave-to {
+    max-height: 0;
+  }
+  .toggle-enter-to, .toggle-leave {
+    max-height: 100px;
   }
 </style>
