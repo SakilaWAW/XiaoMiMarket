@@ -29,7 +29,32 @@
       </div>
     </div>
     <div class="site-nav">
-
+      <ul class="sub-nav-list">
+        <li>
+          <a class="logo-container" href="#">
+            <img class="mi-logo" src="../assets/mi_logo.jpg" alt="">
+          </a>
+        </li>
+        <li>
+          <a class="sub-logo-container" href="#">
+            <img class="mi-sub-logo" src="../assets/mi_sub_logo.jpg" alt="">
+          </a>
+        </li>
+        <li><a href="">小米手机</a></li>
+        <li><a href="">红米</a></li>
+        <li><a href="">电视</a></li>
+        <li><a href="">笔记本</a></li>
+        <li><a href="">盒子</a></li>
+        <li><a href="">新品</a></li>
+        <li><a href="">路由器</a></li>
+        <li><a href="">智能硬件</a></li>
+        <li><a href="">服务</a></li>
+        <li><a href="">社区</a></li>
+        <li class="search-block">
+          <input type="submit" class="iconfont" value=" ">
+          <input type="text">
+        </li>
+      </ul>
     </div>
   </div>
 </template>
@@ -46,6 +71,7 @@ export default {
 </script>
 
 <style lang="scss">
+  $mi-orange: #FF6829;
   // 第一导航栏相关
   #header-container {
     background: #363636;
@@ -60,8 +86,10 @@ export default {
   li {
     list-style: none;
   }
-  li a {
+  a {
     text-decoration: none;
+  }
+  #site-header li a {
     color: #A2A2A2;
     font-size: 12px;
     line-height: 40px;
@@ -100,7 +128,7 @@ export default {
     background: #444;
   }
   .cart-hover {
-    color: #FF6829 !important;
+    color: $mi-orange !important;
     background: white !important;
   }
   @font-face {
@@ -127,6 +155,7 @@ export default {
     height: 100px;
     overflow: hidden;
     width: 300px;
+    z-index: 1;
     background: white;
     box-shadow: 8px 0 8px -8px #CCC,
                 -8px 0 8px -8px #CCC,
@@ -152,5 +181,37 @@ export default {
     height: 100px;
     width: 1240px;
     background: darkgrey;
+    position: relative;
+  }
+  .sub-nav-list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .sub-nav-list li {
+    margin-right: 16px;
+  }
+  .sub-nav-list a {
+    color: black;
+  }
+  .sub-nav-list a:hover {
+    color: $mi-orange;
+  }
+  .mi-logo {
+    height: 55px;
+    width: 55px;
+  }
+  .mi-sub-logo {
+    width: 165px;
+    height: 100px;
+  }
+  .clearfix {
+    clear: both;
+  }
+  .search-block {
+    flex: 1;
+  }
+  .search-block input {
+    float: right;
   }
 </style>
