@@ -46,6 +46,7 @@ export default {
 </script>
 
 <style lang="scss">
+  // 第一导航栏相关
   #header-container {
     background: #363636;
   }
@@ -85,8 +86,13 @@ export default {
     top: 14px;
     right: -7px;
   }
+  #site-header #cart {
+    margin: 0;
+    position: relative;
+  }
   #cart-link {
     margin-left: 15px;
+    margin-right: 0;
     display:inline-block;
     line-height: 40px;
     height: 40px;
@@ -114,9 +120,6 @@ export default {
     -moz-osx-font-smoothing: grayscale;
     margin-right: 2px;
   }
-  #cart {
-    position: relative;
-  }
   #pop-cart-block {
     position: absolute;
     right: 0;
@@ -142,5 +145,12 @@ export default {
   }
   .toggle-enter-to, .toggle-leave {
     height: 100px !important;
+  }
+  // 第二导航栏相关
+  .site-nav {
+    margin: 0 auto;
+    height: 100px;
+    width: 1240px;
+    background: darkgrey;
   }
 </style>
