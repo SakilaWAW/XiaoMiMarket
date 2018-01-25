@@ -1,30 +1,32 @@
 <template>
   <div id="header-area">
-    <div id="site-header">
-      <ul id="left-header">
-        <li class="split-right"><a href="">小米商城</a></li>
-        <li class="split-right"><a href="">MIUI</a></li>
-        <li class="split-right"><a href="">IoT</a></li>
-        <li class="split-right"><a href="">云服务</a></li>
-        <li class="split-right"><a href="">水滴</a></li>
-        <li class="split-right"><a href="">金融</a></li>
-        <li class="split-right"><a href="">有品</a></li>
-        <li><a href="">Select Region</a></li>
-      </ul>
-      <ul id="right-header">
-        <li class="split-right"><a href="">登陆</a></li>
-        <li class="split-right"><a href="">注册</a></li>
-        <li><a href="">消息通知</a></li>
-        <li id="cart">
-          <a id="cart-link" @mouseenter="showPopBlock=true" :class="{'cart-hover': showPopBlock}"
-             @mouseleave="showPopBlock=false" href=""><i class="iconfont">&#xe60f;</i>购物车(0)</a>
-          <transition name="toggle">
-            <div id="pop-cart-block" @mouseenter="showPopBlock=true"
-                 @mouseleave="showPopBlock=false" v-show="showPopBlock">购物车中还没有商品，赶紧选购吧！</div>
-          </transition>
-        </li>
-      </ul>
-
+    <div id="header-container">
+      <div id="site-header">
+        <ul id="left-header">
+          <li class="split-right"><a href="">小米商城</a></li>
+          <li class="split-right"><a href="">MIUI</a></li>
+          <li class="split-right"><a href="">IoT</a></li>
+          <li class="split-right"><a href="">云服务</a></li>
+          <li class="split-right"><a href="">水滴</a></li>
+          <li class="split-right"><a href="">金融</a></li>
+          <li class="split-right"><a href="">有品</a></li>
+          <li><a href="">Select Region</a></li>
+        </ul>
+        <ul id="right-header">
+          <li class="split-right"><a href="">登陆</a></li>
+          <li class="split-right"><a href="">注册</a></li>
+          <li><a href="">消息通知</a></li>
+          <li id="cart">
+            <a id="cart-link" @mouseenter="showPopBlock=true" :class="{'cart-hover': showPopBlock}"
+               @mouseleave="showPopBlock=false" href=""><i class="iconfont">&#xe60f;</i>购物车(0)</a>
+            <transition name="toggle">
+              <div id="pop-cart-block" @mouseenter="showPopBlock=true"
+                   @mouseleave="showPopBlock=false" v-show="showPopBlock">购物车中还没有商品，赶紧选购吧！
+              </div>
+            </transition>
+          </li>
+        </ul>
+      </div>
     </div>
     <div class="site-nav">
 
@@ -44,9 +46,13 @@ export default {
 </script>
 
 <style lang="scss">
-  #site-header {
-    height: 40px;
+  #header-container {
     background: #363636;
+  }
+  #site-header {
+    margin: 0 auto;
+    height: 40px;
+    width: 1240px;
     display: flex;
     justify-content: space-between;
   }
@@ -70,9 +76,6 @@ export default {
   #site-header a:hover {
     color: white;
   }
-  #left-header {
-    margin-left: 20px;
-  }
   .split-right::after {
     content: '';
     width: 1px;
@@ -83,7 +86,7 @@ export default {
     right: -7px;
   }
   #cart-link {
-    margin: 0 15px;
+    margin-left: 15px;
     display:inline-block;
     line-height: 40px;
     height: 40px;
@@ -116,7 +119,7 @@ export default {
   }
   #pop-cart-block {
     position: absolute;
-    right: 15px;
+    right: 0;
     top: 40px;
     height: 100px;
     overflow: hidden;

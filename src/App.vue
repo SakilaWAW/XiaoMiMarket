@@ -26,6 +26,9 @@ export default {
     padding: 0;
     margin: 0;
   }
+  body {
+    min-width: 1240px;
+  }
   #app {
     font-family: "Helvetica Neue",Helvetica,Arial,
                 "Microsoft Yahei","Hiragino Sans GB",
