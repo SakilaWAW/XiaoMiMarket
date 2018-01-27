@@ -51,7 +51,8 @@
         <form class="search-form" action="">
           <label for="GET-name"></label>
           <input class="search-input" id="GET-name" type="text" name="name">
-          <input class="search-btn iconfont" type="submit" value="&#xe60f;">
+          <input class="search-btn" @click="alert(1)" type="submit" value="">
+          <i class="search-btn-icon iconfont">&#xe617;</i>
         </form>
       </div>
     </div>
@@ -78,6 +79,7 @@ export default {
   #header-container {
     background: #363636;
   }
+
   #site-header {
     margin: 0 auto;
     height: 40px;
@@ -85,28 +87,35 @@ export default {
     display: flex;
     justify-content: space-between;
   }
+
   li {
     list-style: none;
   }
+
   a {
     text-decoration: none;
   }
+
   #site-header li a {
     color: $dark-dark-grey;
     font-size: 12px;
     line-height: 40px;
   }
+
   #left-header, #right-header {
     display: inline-block;
   }
-  #site-header li{
+
+  #site-header li {
     display: inline-block;
     margin: 0 5px;
     position: relative;
   }
+
   #site-header a:hover {
     color: white;
   }
+
   .split-right::after {
     content: '';
     width: 1px;
@@ -116,40 +125,46 @@ export default {
     top: 14px;
     right: -7px;
   }
+
   #site-header #cart {
     margin: 0;
     position: relative;
   }
+
   #cart-link {
     margin-left: 15px;
     margin-right: 0;
-    display:inline-block;
+    display: inline-block;
     line-height: 40px;
     height: 40px;
     padding: 0 20px;
     background: $text-origin-grey;
   }
+
   .cart-hover {
     color: $mi-orange !important;
     background: white !important;
   }
+
   @font-face {
     font-family: 'iconfont';  /* project id 552033 */
-    src: url('//at.alicdn.com/t/font_552033_p0b86r4q3b10dx6r.eot');
-    src: url('//at.alicdn.com/t/font_552033_p0b86r4q3b10dx6r.eot?#iefix')
+    src: url('//at.alicdn.com/t/font_552033_suvq32hjehc6usor.eot');
+    src: url('//at.alicdn.com/t/font_552033_suvq32hjehc6usor.eot?#iefix')
         format('embedded-opentype'),
-    url('//at.alicdn.com/t/font_552033_p0b86r4q3b10dx6r.woff') format('woff'),
-    url('//at.alicdn.com/t/font_552033_p0b86r4q3b10dx6r.ttf') format('truetype'),
-    url('//at.alicdn.com/t/font_552033_p0b86r4q3b10dx6r.svg#iconfont') format('svg');
+    url('//at.alicdn.com/t/font_552033_suvq32hjehc6usor.woff') format('woff'),
+    url('//at.alicdn.com/t/font_552033_suvq32hjehc6usor.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_552033_suvq32hjehc6usor.svg#iconfont') format('svg');
   }
+
   .iconfont {
-    font-family:"iconfont" !important;
-    font-size:16px;
-    font-style:normal;
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     margin-right: 2px;
   }
+
   #pop-cart-block {
     position: absolute;
     right: 0;
@@ -160,50 +175,59 @@ export default {
     z-index: 1;
     background: white;
     box-shadow: 8px 0 8px -8px $shadow-color,
-                -8px 0 8px -8px $shadow-color,
-                0 1px 1px -1px $shadow-color;
+    -8px 0 8px -8px $shadow-color,
+    0 1px 1px -1px $shadow-color;
     text-align: center;
     line-height: 100px;
     font-size: 12px;
   }
+
   .toggle-enter-active, .toggle-leave-active {
     transition-property: height;
     transition-duration: .3s;
     transition-timing-function: ease-in-out;
   }
+
   .toggle-enter, .toggle-leave-to {
     height: 0 !important;
   }
+
   .toggle-enter-to, .toggle-leave {
     height: 100px !important;
   }
+
   // 第二导航栏相关
   .site-nav {
     margin: 0 auto;
     height: 100px;
     width: 1240px;
-    background: darkgrey;
     position: relative;
   }
-  .site-logo, .nav-list{
+
+  .site-logo, .nav-list {
     float: left;
   }
+
   .sub-gg {
     width: 127px;
     height: 80px;
   }
-  .nav-list li{
+
+  .nav-list li {
     display: inline-block;
     line-height: 100px;
     margin: 0 10px;
     vertical-align: middle;
   }
+
   .nav-list li a {
     color: black;
   }
+
   .nav-list li a:hover {
     color: $mi-orange;
   }
+
   .site-logo {
     width: 55px;
     height: 55px;
@@ -212,20 +236,25 @@ export default {
     transform: translateY(-50%);
     margin-right: 15px;
   }
+
   .search-form {
     height: 50px;
     position: relative;
     top: 50%;
     transform: translateY(-50%);
   }
+
   .search-container {
     float: right;
     height: 100px;
   }
+
   .search-form input {
     height: 50px;
     vertical-align: middle;
+    position: relative;
   }
+
   .search-input {
     width: 245px;
     position: relative;
@@ -233,10 +262,34 @@ export default {
     top: 1px;
     border: 1px solid black;
   }
+
+  .search-input:focus {
+    border-color: $mi-orange;
+  }
+
   .search-btn {
     width: 50px;
     background: white;
     box-sizing: content-box;
+    border: none;
+  }
+
+  .search-btn-icon {
+    font-size: 25px;
+    position: absolute;
+    right: -2px;
+    bottom: -3px;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
     border: 1px solid black;
+  }
+
+  .search-btn-icon:hover {
+    background: $mi-orange;
+    color: white;
+    cursor: pointer;
+    border: 1px solid $mi-orange;
   }
 </style>
