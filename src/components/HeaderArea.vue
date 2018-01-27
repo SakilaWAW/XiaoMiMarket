@@ -29,17 +29,13 @@
       </div>
     </div>
     <div class="site-nav">
-      <ul class="sub-nav-list">
-        <li>
-          <a class="logo-container" href="#">
-            <img class="mi-logo" src="../assets/mi_logo.jpg" alt="">
-          </a>
-        </li>
-        <li>
-          <a class="sub-logo-container" href="#">
-            <img class="mi-sub-logo" src="../assets/mi_sub_logo.jpg" alt="">
-          </a>
-        </li>
+      <div class="site-logo">
+        <a class="logo-container" href="https://www.baidu.com">
+          <img class="mi-logo" src="../assets/mi_logo.png" alt="">
+        </a>
+      </div>
+      <ul class="nav-list">
+        <li class="sub-gg"><a href=""></a></li>
         <li><a href="">小米手机</a></li>
         <li><a href="">红米</a></li>
         <li><a href="">电视</a></li>
@@ -50,11 +46,14 @@
         <li><a href="">智能硬件</a></li>
         <li><a href="">服务</a></li>
         <li><a href="">社区</a></li>
-        <li class="search-block">
-          <input type="submit" class="iconfont" value=" ">
-          <input type="text">
-        </li>
       </ul>
+      <div class="search-container">
+        <form class="search-form" action="">
+          <label for="GET-name"></label>
+          <input class="search-input" id="GET-name" type="text" name="name">
+          <input class="search-btn iconfont" type="submit" value="&#xe60f;">
+        </form>
+      </div>
     </div>
   </div>
 </template>
@@ -72,6 +71,9 @@ export default {
 
 <style lang="scss">
   $mi-orange: #FF6829;
+  $shadow-color: #CCC;
+  $dark-dark-grey: #A2A2A2;
+  $text-origin-grey: #444;
   // 第一导航栏相关
   #header-container {
     background: #363636;
@@ -90,7 +92,7 @@ export default {
     text-decoration: none;
   }
   #site-header li a {
-    color: #A2A2A2;
+    color: $dark-dark-grey;
     font-size: 12px;
     line-height: 40px;
   }
@@ -125,7 +127,7 @@ export default {
     line-height: 40px;
     height: 40px;
     padding: 0 20px;
-    background: #444;
+    background: $text-origin-grey;
   }
   .cart-hover {
     color: $mi-orange !important;
@@ -157,9 +159,9 @@ export default {
     width: 300px;
     z-index: 1;
     background: white;
-    box-shadow: 8px 0 8px -8px #CCC,
-                -8px 0 8px -8px #CCC,
-                0 1px 1px -1px #CCC;
+    box-shadow: 8px 0 8px -8px $shadow-color,
+                -8px 0 8px -8px $shadow-color,
+                0 1px 1px -1px $shadow-color;
     text-align: center;
     line-height: 100px;
     font-size: 12px;
@@ -183,35 +185,58 @@ export default {
     background: darkgrey;
     position: relative;
   }
-  .sub-nav-list {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+  .site-logo, .nav-list{
+    float: left;
   }
-  .sub-nav-list li {
-    margin-right: 16px;
+  .sub-gg {
+    width: 127px;
+    height: 80px;
   }
-  .sub-nav-list a {
+  .nav-list li{
+    display: inline-block;
+    line-height: 100px;
+    margin: 0 10px;
+    vertical-align: middle;
+  }
+  .nav-list li a {
     color: black;
   }
-  .sub-nav-list a:hover {
+  .nav-list li a:hover {
     color: $mi-orange;
   }
-  .mi-logo {
-    height: 55px;
+  .site-logo {
     width: 55px;
+    height: 55px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-right: 15px;
   }
-  .mi-sub-logo {
-    width: 165px;
+  .search-form {
+    height: 50px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .search-container {
+    float: right;
     height: 100px;
   }
-  .clearfix {
-    clear: both;
+  .search-form input {
+    height: 50px;
+    vertical-align: middle;
   }
-  .search-block {
-    flex: 1;
+  .search-input {
+    width: 245px;
+    position: relative;
+    left: 5px;
+    top: 1px;
+    border: 1px solid black;
   }
-  .search-block input {
-    float: right;
+  .search-btn {
+    width: 50px;
+    background: white;
+    box-sizing: content-box;
+    border: 1px solid black;
   }
 </style>
