@@ -21,13 +21,31 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
   * {
     padding: 0;
     margin: 0;
   }
   body {
     min-width: 1240px;
+  }
+  @font-face {
+    font-family: 'iconfont';  /* project id 552033 */
+    src: url('//at.alicdn.com/t/font_552033_suvq32hjehc6usor.eot');
+    src: url('//at.alicdn.com/t/font_552033_suvq32hjehc6usor.eot?#iefix')
+    format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_552033_suvq32hjehc6usor.woff') format('woff'),
+    url('//at.alicdn.com/t/font_552033_suvq32hjehc6usor.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_552033_suvq32hjehc6usor.svg#iconfont') format('svg');
+  }
+
+  .iconfont {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin-right: 2px;
   }
   #app {
     font-family: "Helvetica Neue",Helvetica,Arial,
