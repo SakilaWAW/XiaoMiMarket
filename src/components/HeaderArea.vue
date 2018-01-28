@@ -47,21 +47,20 @@
         <li><a href="">服务</a></li>
         <li><a href="">社区</a></li>
       </ul>
-      <div class="search-container">
-        <form class="search-form" action="">
-          <label for="GET-name"></label>
-          <input class="search-input" id="GET-name" type="text" name="name">
-          <input class="search-btn" @click="alert(1)" type="submit" value="">
-          <i class="search-btn-icon iconfont">&#xe617;</i>
-        </form>
-      </div>
+      <search-box :resTags="[{ name: '小米Mix2', count: 10 }
+      ,{ name: '小米6', count: 9 },{ name: '红米Note3', count: 30 }]"></search-box>
     </div>
   </div>
 </template>
 
 <script>
+import SearchBox from './HeaderAreaComp/SearchBox';
+
 export default {
   name: 'header-area',
+  components: {
+    SearchBox,
+  },
   data() {
     return {
       showPopBlock: false,
@@ -71,10 +70,7 @@ export default {
 </script>
 
 <style lang="scss">
-  $mi-orange: #FF6829;
-  $shadow-color: #CCC;
-  $dark-dark-grey: #A2A2A2;
-  $text-origin-grey: #444;
+  @import '../assets/css/global';
   // 第一导航栏相关
   #header-container {
     background: #363636;
@@ -144,25 +140,6 @@ export default {
   .cart-hover {
     color: $mi-orange !important;
     background: white !important;
-  }
-
-  @font-face {
-    font-family: 'iconfont';  /* project id 552033 */
-    src: url('//at.alicdn.com/t/font_552033_suvq32hjehc6usor.eot');
-    src: url('//at.alicdn.com/t/font_552033_suvq32hjehc6usor.eot?#iefix')
-        format('embedded-opentype'),
-    url('//at.alicdn.com/t/font_552033_suvq32hjehc6usor.woff') format('woff'),
-    url('//at.alicdn.com/t/font_552033_suvq32hjehc6usor.ttf') format('truetype'),
-    url('//at.alicdn.com/t/font_552033_suvq32hjehc6usor.svg#iconfont') format('svg');
-  }
-
-  .iconfont {
-    font-family: "iconfont" !important;
-    font-size: 16px;
-    font-style: normal;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    margin-right: 2px;
   }
 
   #pop-cart-block {
@@ -237,59 +214,8 @@ export default {
     margin-right: 15px;
   }
 
-  .search-form {
-    height: 50px;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  .search-container {
+  .search-box {
     float: right;
     height: 100px;
-  }
-
-  .search-form input {
-    height: 50px;
-    vertical-align: middle;
-    position: relative;
-  }
-
-  .search-input {
-    width: 245px;
-    position: relative;
-    left: 5px;
-    top: 1px;
-    border: 1px solid black;
-  }
-
-  .search-input:focus {
-    border-color: $mi-orange;
-  }
-
-  .search-btn {
-    width: 50px;
-    background: white;
-    box-sizing: content-box;
-    border: none;
-  }
-
-  .search-btn-icon {
-    font-size: 25px;
-    position: absolute;
-    right: -2px;
-    bottom: -3px;
-    width: 50px;
-    height: 50px;
-    text-align: center;
-    line-height: 50px;
-    border: 1px solid black;
-  }
-
-  .search-btn-icon:hover {
-    background: $mi-orange;
-    color: white;
-    cursor: pointer;
-    border: 1px solid $mi-orange;
   }
 </style>
