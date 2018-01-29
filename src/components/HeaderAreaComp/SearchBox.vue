@@ -50,12 +50,11 @@ export default {
     },
   },
   methods: {
-    getSearchResult: _.debounce(() => {
+    getSearchResult: _.debounce(function () {
+      const that = this;
       axios.get('http://localhost:3000/search/')
         .then((res) => {
-          console.log(this.resTags);
-          this.resTags = res.data.result;
-          console.log(this.resTags);
+          that.resTags = res.data.result;
         }).catch((err) => {
           console.log(err);
         });
