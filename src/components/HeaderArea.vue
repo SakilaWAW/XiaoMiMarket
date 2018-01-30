@@ -47,7 +47,7 @@
         <li><a href="">服务</a></li>
         <li><a href="">社区</a></li>
       </ul>
-      <search-box :resTags="[{ name: '小米Mix2', count: 10 }
+      <search-box :initTags="[{ name: '小米Mix2', count: 10 }
       ,{ name: '小米6', count: 9 },{ name: '红米Note3', count: 30 }]"></search-box>
     </div>
   </div>

@@ -30,22 +30,18 @@ import _ from 'lodash';
 
 export default {
   name: 'search-box',
-  // props: ['resTags'],
+  props: ['initTags'],
   data() {
     return {
       isActive: false,
       isHover: false,
       isHoverList: false,
       inputText: '',
-      resTags: [
-        { name: '小米Mix2', count: 10 },
-        { name: '小米6', count: 9 },
-        { name: '红米Note3', count: 30 },
-      ],
+      resTags: Object.assign([], this.initTags),
     };
   },
   watch: {
-    inputText(oldText, newText) {
+    inputText() {
       this.getSearchResult();
     },
   },
