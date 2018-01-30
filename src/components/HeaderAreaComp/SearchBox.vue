@@ -50,13 +50,10 @@ export default {
     },
   },
   methods: {
-    getSearchResult: _.debounce(function () {
-      const that = this;
+    getSearchResult: _.debounce(function f() {
       axios.get('http://localhost:3000/search/')
         .then((res) => {
-          that.resTags = res.data.result;
-        }).catch((err) => {
-          console.log(err);
+          this.resTags = res.data.result;
         });
     }, 500),
     hover() {
