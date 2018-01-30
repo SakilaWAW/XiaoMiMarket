@@ -47,23 +47,30 @@
         <li><a href="">服务</a></li>
         <li><a href="">社区</a></li>
       </ul>
-      <search-box :initTags="[{ name: '小米Mix2', count: 10 }
-      ,{ name: '小米6', count: 9 },{ name: '红米Note3', count: 30 }]"></search-box>
+      <search-box :initTags="searchInitTags"></search-box>
     </div>
+    <expand-menu></expand-menu>
   </div>
 </template>
 
 <script>
 import SearchBox from './HeaderAreaComp/SearchBox';
+import ExpandMenu from './HeaderAreaComp/ExpandMenu';
 
 export default {
   name: 'header-area',
   components: {
     SearchBox,
+    ExpandMenu,
   },
   data() {
     return {
       showPopBlock: false,
+      searchInitTags: [
+        { name: '小米Mix2', count: 10 },
+        { name: '小米6', count: 9 },
+        { name: '红米Note3', count: 30 },
+      ],
     };
   },
 };
@@ -79,7 +86,7 @@ export default {
   #site-header {
     margin: 0 auto;
     height: 40px;
-    width: 1240px;
+    width: $site-content-width;
     display: flex;
     justify-content: space-between;
   }
@@ -177,8 +184,7 @@ export default {
   .site-nav {
     margin: 0 auto;
     height: 100px;
-    width: 1240px;
-    position: relative;
+    width: $site-content-width;
   }
 
   .site-logo, .nav-list {
