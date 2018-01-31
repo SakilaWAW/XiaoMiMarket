@@ -36,20 +36,15 @@
       </div>
       <ul class="nav-list">
         <li class="sub-gg"><a href=""></a></li>
-        <li><a href="">小米手机</a></li>
-        <li><a href="">红米</a></li>
-        <li><a href="">电视</a></li>
-        <li><a href="">笔记本</a></li>
-        <li><a href="">盒子</a></li>
-        <li><a href="">新品</a></li>
-        <li><a href="">路由器</a></li>
-        <li><a href="">智能硬件</a></li>
-        <li><a href="">服务</a></li>
-        <li><a href="">社区</a></li>
+        <li v-for="(menu, index) in navListMenu"
+            :key="index"><span>{{ menu.name }}</span></li>
       </ul>
-      <search-box :initTags="searchInitTags"></search-box>
+      <transition name="toggle">
+        <search-box :initTags="searchInitTags"></search-box>
+      </transition>
     </div>
-    <expand-menu></expand-menu>
+    <expand-menu v-show="showExpandMenu"
+                 @mouseenter="showExpandMenu=true" @mouseleave="showExpandMenu=false"></expand-menu>
   </div>
 </template>
 
@@ -66,10 +61,23 @@ export default {
   data() {
     return {
       showPopBlock: false,
+      showExpandMenu: false,
       searchInitTags: [
         { name: '小米Mix2', count: 10 },
         { name: '小米6', count: 9 },
         { name: '红米Note3', count: 30 },
+      ],
+      navListMenu: [
+        { name: '小米手机', href: '' },
+        { name: '红米', href: '' },
+        { name: '电视', href: '' },
+        { name: '笔记本', href: '' },
+        { name: '盒子', href: '' },
+        { name: '新品', href: 'https://www.mi.com/p/2848.html' },
+        { name: '路由器', href: '' },
+        { name: '智能硬件', href: '' },
+        { name: '服务', href: 'https://www.mi.com/service/' },
+        { name: '社区', href: 'http://www.xiaomi.cn/' },
       ],
     };
   },
@@ -203,12 +211,9 @@ export default {
     vertical-align: middle;
   }
 
-  .nav-list li a {
-    color: black;
-  }
-
-  .nav-list li a:hover {
+  .nav-list li span:hover {
     color: $mi-orange;
+    cursor: pointer;
   }
 
   .site-logo {
