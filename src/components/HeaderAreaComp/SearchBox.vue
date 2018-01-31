@@ -81,7 +81,7 @@ export default {
 
 <style lang="scss" scoped>
   @import '../../assets/css/global';
-  $nor-border-color: #E4E4E4;
+  $nor-border-color: $shadow-grey;
   $act-border-color: $mi-orange;
   $hov-border-color: #A4A4A4;
   $search-res-hover: #FAFAFA;
