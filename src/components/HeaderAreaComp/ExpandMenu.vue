@@ -47,7 +47,7 @@ export default {
     height: $menu-height;
     background: white;
     border-top: 1px solid $shadow-grey;
-    box-shadow: 0 5px 4px -4px $shadow-grey;//单侧投影技巧
+    box-shadow: 0 5px 4px -4px $shadow-grey;// 单侧投影技巧
   }
   .menu-container {
     display: flex;

@@ -164,6 +164,7 @@ export default {
     width: 245px;
     border: 1px solid $mi-orange;
     border-top: none;
+    background: white;
   }
   .res-lis li {
     position: relative;
