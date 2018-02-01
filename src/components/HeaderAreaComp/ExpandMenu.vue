@@ -3,9 +3,9 @@
     <ul class="menu-container">
       <li class="menu-item"
           v-for="(item, index) in items"
-          :key="item.name"
+          :key="index"
           :class="{'right-sep-line': index<5}">
-        <span class="top-des" v-if="item.hasDes">{{ item.topDes }}</span>
+        <span class="top-des" v-if="item.topDes!==''">{{ item.topDes }}</span>
         <a class="item-img" :href="`https://www.mi.com/${item.hrefPostfix}`" :style="{background: `url(${item.img})`}"></a>
         <a class="item-name" :href="`https://www.mi.com/${item.hrefPostfix}`">{{ item.name }}</a>
         <span :class="{'orange-text': isOrangeDes(item.name)}">{{ item.bottomDes }}</span>
