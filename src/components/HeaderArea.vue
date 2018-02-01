@@ -36,8 +36,9 @@
       </div>
       <ul class="nav-list">
         <li class="sub-gg"><a href=""></a></li>
-        <li v-for="(menu, index) in navListMenu" :key="index">
-          <span @mouseenter="showExpandMenu=true" @mouseleave="showExpandMenu=false">
+        <li v-for="(menu, index) in navListMenu" :key="index"
+            @mouseenter="hoverNavList(menu.name)" @mouseleave="showExpandMenu=false">
+          <span>
             {{ menu.name }}
           </span>
         </li>
@@ -45,7 +46,7 @@
       <search-box :initTags="searchInitTags"></search-box>
     </div>
     <transition name="exp-toggle">
-    <expand-menu v-show="showExpandMenu"
+    <expand-menu v-show="showExpandMenu" :items="expandMenuCurContent"
                  @mouseenter="showExpandMenu=true" @mouseleave="showExpandMenu=false"></expand-menu>
     </transition>
   </div>
@@ -54,6 +55,88 @@
 <script>
 import SearchBox from './HeaderAreaComp/SearchBox';
 import ExpandMenu from './HeaderAreaComp/ExpandMenu';
+
+const phonePic = require('../assets/phone.png');
+
+const expandMenuContent = {
+  小米手机: [
+    { hasDes: true, topDes: '新品', img: phonePic, name: '红米Note3', bottomDes: '1233元起', hrefPostfix: 'mi5x' },
+    { hasDes: true, topDes: '新品', img: phonePic, name: '小米7', bottomDes: '2013元起', hrefPostfix: 'mi5x' },
+    { hasDes: false, topDes: '', img: phonePic, name: '红米4', bottomDes: '1399元起', hrefPostfix: 'mi5x' },
+    { hasDes: false, topDes: '', img: phonePic, name: '小米Mix2', bottomDes: '3999元起', hrefPostfix: 'mi5x' },
+    { hasDes: false, topDes: '', img: phonePic, name: '小米Mix2', bottomDes: '3999元起', hrefPostfix: 'mi5x' },
+    { hasDes: false, topDes: '', img: phonePic, name: '查看全部', bottomDes: '小米手机', hrefPostfix: 'mi5x' },
+  ],
+  红米: [
+    { hasDes: true, topDes: '绝版', img: phonePic, name: '红米Note3', bottomDes: '1233元起', hrefPostfix: 'mi5x' },
+    { hasDes: true, topDes: '新品', img: phonePic, name: '小米7', bottomDes: '2013元起', hrefPostfix: 'mi5x' },
+    { hasDes: false, topDes: '', img: phonePic, name: '红米4', bottomDes: '1399元起', hrefPostfix: 'mi5x' },
+  ],
+  电视: [
+    { hasDes: true, topDes: '新品', img: phonePic, name: '红米Note3', bottomDes: '1233元起', hrefPostfix: 'mi5x' },
+    { hasDes: true, topDes: '新品', img: phonePic, name: '小米7', bottomDes: '2013元起', hrefPostfix: 'mi5x' },
+    { hasDes: false, topDes: '', img: phonePic, name: '红米4', bottomDes: '1399元起', hrefPostfix: 'mi5x' },
+    { hasDes: false, topDes: '', img: phonePic, name: '小米Mix2', bottomDes: '3999元起', hrefPostfix: 'mi5x' },
+    { hasDes: false, topDes: '', img: phonePic, name: '小米Mix2', bottomDes: '3999元起', hrefPostfix: 'mi5x' },
+    { hasDes: false, topDes: '', img: phonePic, name: '查看全部', bottomDes: '小米手机', hrefPostfix: 'mi5x' },
+  ],
+  笔记本: [
+    { hasDes: true, topDes: '新品', img: phonePic, name: '红米Note3', bottomDes: '1233元起', hrefPostfix: 'mi5x' },
+    { hasDes: true, topDes: '新品', img: phonePic, name: '小米7', bottomDes: '2013元起', hrefPostfix: 'mi5x' },
+    { hasDes: false, topDes: '', img: phonePic, name: '红米4', bottomDes: '1399元起', hrefPostfix: 'mi5x' },
+    { hasDes: false, topDes: '', img: phonePic, name: '小米Mix2', bottomDes: '3999元起', hrefPostfix: 'mi5x' },
+    { hasDes: false, topDes: '', img: phonePic, name: '小米Mix2', bottomDes: '3999元起', hrefPostfix: 'mi5x' },
+    { hasDes: false, topDes: '', img: phonePic, name: '查看全部', bottomDes: '小米手机', hrefPostfix: 'mi5x' },
+  ],
+  盒子: [
+    { hasDes: true, topDes: '新品', img: phonePic, name: '红米Note3', bottomDes: '1233元起', hrefPostfix: 'mi5x' },
+    { hasDes: true, topDes: '新品', img: phonePic, name: '小米7', bottomDes: '2013元起', hrefPostfix: 'mi5x' },
+    { hasDes: false, topDes: '', img: phonePic, name: '红米4', bottomDes: '1399元起', hrefPostfix: 'mi5x' },
+    { hasDes: false, topDes: '', img: phonePic, name: '小米Mix2', bottomDes: '3999元起', hrefPostfix: 'mi5x' },
+    { hasDes: false, topDes: '', img: phonePic, name: '小米Mix2', bottomDes: '3999元起', hrefPostfix: 'mi5x' },
+    { hasDes: false, topDes: '', img: phonePic, name: '查看全部', bottomDes: '小米手机', hrefPostfix: 'mi5x' },
+  ],
+  新品: [
+    { hasDes: true, topDes: '新品', img: phonePic, name: '红米Note3', bottomDes: '1233元起', hrefPostfix: 'mi5x' },
+    { hasDes: true, topDes: '新品', img: phonePic, name: '小米7', bottomDes: '2013元起', hrefPostfix: 'mi5x' },
+    { hasDes: false, topDes: '', img: phonePic, name: '红米4', bottomDes: '1399元起', hrefPostfix: 'mi5x' },
+    { hasDes: false, topDes: '', img: phonePic, name: '小米Mix2', bottomDes: '3999元起', hrefPostfix: 'mi5x' },
+    { hasDes: false, topDes: '', img: phonePic, name: '小米Mix2', bottomDes: '3999元起', hrefPostfix: 'mi5x' },
+    { hasDes: false, topDes: '', img: phonePic, name: '查看全部', bottomDes: '小米手机', hrefPostfix: 'mi5x' },
+  ],
+  路由器: [
+    { hasDes: true, topDes: '新品', img: phonePic, name: '红米Note3', bottomDes: '1233元起', hrefPostfix: 'mi5x' },
+    { hasDes: true, topDes: '新品', img: phonePic, name: '小米7', bottomDes: '2013元起', hrefPostfix: 'mi5x' },
+    { hasDes: false, topDes: '', img: phonePic, name: '红米4', bottomDes: '1399元起', hrefPostfix: 'mi5x' },
+    { hasDes: false, topDes: '', img: phonePic, name: '小米Mix2', bottomDes: '3999元起', hrefPostfix: 'mi5x' },
+    { hasDes: false, topDes: '', img: phonePic, name: '小米Mix2', bottomDes: '3999元起', hrefPostfix: 'mi5x' },
+    { hasDes: false, topDes: '', img: phonePic, name: '查看全部', bottomDes: '小米手机', hrefPostfix: 'mi5x' },
+  ],
+  智能硬件: [
+    { hasDes: true, topDes: '新品', img: phonePic, name: '红米Note3', bottomDes: '1233元起', hrefPostfix: 'mi5x' },
+    { hasDes: true, topDes: '新品', img: phonePic, name: '小米7', bottomDes: '2013元起', hrefPostfix: 'mi5x' },
+    { hasDes: false, topDes: '', img: phonePic, name: '红米4', bottomDes: '1399元起', hrefPostfix: 'mi5x' },
+    { hasDes: false, topDes: '', img: phonePic, name: '小米Mix2', bottomDes: '3999元起', hrefPostfix: 'mi5x' },
+    { hasDes: false, topDes: '', img: phonePic, name: '小米Mix2', bottomDes: '3999元起', hrefPostfix: 'mi5x' },
+    { hasDes: false, topDes: '', img: phonePic, name: '查看全部', bottomDes: '小米手机', hrefPostfix: 'mi5x' },
+  ],
+  服务: [
+    { hasDes: true, topDes: '新品', img: phonePic, name: '红米Note3', bottomDes: '1233元起', hrefPostfix: 'mi5x' },
+    { hasDes: true, topDes: '新品', img: phonePic, name: '小米7', bottomDes: '2013元起', hrefPostfix: 'mi5x' },
+    { hasDes: false, topDes: '', img: phonePic, name: '红米4', bottomDes: '1399元起', hrefPostfix: 'mi5x' },
+    { hasDes: false, topDes: '', img: phonePic, name: '小米Mix2', bottomDes: '3999元起', hrefPostfix: 'mi5x' },
+    { hasDes: false, topDes: '', img: phonePic, name: '小米Mix2', bottomDes: '3999元起', hrefPostfix: 'mi5x' },
+    { hasDes: false, topDes: '', img: phonePic, name: '查看全部', bottomDes: '小米手机', hrefPostfix: 'mi5x' },
+  ],
+  社区: [
+    { hasDes: true, topDes: '新品', img: phonePic, name: '红米Note3', bottomDes: '1233元起', hrefPostfix: 'mi5x' },
+    { hasDes: true, topDes: '新品', img: phonePic, name: '小米7', bottomDes: '2013元起', hrefPostfix: 'mi5x' },
+    { hasDes: false, topDes: '', img: phonePic, name: '红米4', bottomDes: '1399元起', hrefPostfix: 'mi5x' },
+    { hasDes: false, topDes: '', img: phonePic, name: '小米Mix2', bottomDes: '3999元起', hrefPostfix: 'mi5x' },
+    { hasDes: false, topDes: '', img: phonePic, name: '小米Mix2', bottomDes: '3999元起', hrefPostfix: 'mi5x' },
+    { hasDes: false, topDes: '', img: phonePic, name: '查看全部', bottomDes: '小米手机', hrefPostfix: 'mi5x' },
+  ],
+};
 
 export default {
   name: 'header-area',
@@ -65,6 +148,7 @@ export default {
     return {
       showPopBlock: false,
       showExpandMenu: false,
+      expandMenuCurContent: '',
       searchInitTags: [
         { name: '小米Mix2', count: 10 },
         { name: '小米6', count: 9 },
@@ -83,6 +167,11 @@ export default {
         { name: '社区', href: 'http://www.xiaomi.cn/' },
       ],
     };
+  },
+  methods: {
+    hoverNavList(curName) {
+      this.expandMenuCurContent = expandMenuContent[curName];
+    },
   },
 };
 </script>
@@ -210,11 +299,11 @@ export default {
   .nav-list li {
     display: inline-block;
     line-height: 100px;
-    margin: 0 10px;
+    padding: 0 10px;
     vertical-align: middle;
   }
 
-  .nav-list li span:hover {
+  .nav-list li:hover {
     color: $mi-orange;
     cursor: pointer;
   }

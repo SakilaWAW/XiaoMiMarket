@@ -15,22 +15,9 @@
 </template>
 
 <script>
-const phonePic = require('../../assets/phone.png');
-
 export default {
   name: 'expand-menu',
-  data() {
-    return {
-      items: [
-        { hasDes: true, topDes: '新品', img: phonePic, name: '红米Note3', bottomDes: '1233元起', hrefPostfix: 'mi5x' },
-        { hasDes: true, topDes: '新品', img: phonePic, name: '小米7', bottomDes: '2013元起', hrefPostfix: 'mi5x' },
-        { hasDes: false, topDes: '', img: phonePic, name: '红米4', bottomDes: '1399元起', hrefPostfix: 'mi5x' },
-        { hasDes: false, topDes: '', img: phonePic, name: '小米Mix2', bottomDes: '3999元起', hrefPostfix: 'mi5x' },
-        { hasDes: false, topDes: '', img: phonePic, name: '小米Mix2', bottomDes: '3999元起', hrefPostfix: 'mi5x' },
-        { hasDes: false, topDes: '', img: phonePic, name: '查看全部', bottomDes: '小米手机', hrefPostfix: 'mi5x' },
-      ],
-    };
-  },
+  props: ['items'],
   methods: {
     isOrangeDes(name) {
       return name !== '查看全部';
