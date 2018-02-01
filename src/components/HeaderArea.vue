@@ -36,15 +36,18 @@
       </div>
       <ul class="nav-list">
         <li class="sub-gg"><a href=""></a></li>
-        <li v-for="(menu, index) in navListMenu"
-            :key="index"><span>{{ menu.name }}</span></li>
+        <li v-for="(menu, index) in navListMenu" :key="index">
+          <span @mouseenter="showExpandMenu=true" @mouseleave="showExpandMenu=false">
+            {{ menu.name }}
+          </span>
+        </li>
       </ul>
-      <transition name="toggle">
-        <search-box :initTags="searchInitTags"></search-box>
-      </transition>
+      <search-box :initTags="searchInitTags"></search-box>
     </div>
+    <transition name="exp-toggle">
     <expand-menu v-show="showExpandMenu"
                  @mouseenter="showExpandMenu=true" @mouseleave="showExpandMenu=false"></expand-menu>
+    </transition>
   </div>
 </template>
 
@@ -228,5 +231,20 @@ export default {
   .search-box {
     float: right;
     height: 100px;
+  }
+  .exp-toggle-enter-active, .exp-toggle-leave-active {
+    transition-property: height;
+    transition-duration: .3s;
+    transition-timing-function: ease-in-out;
+    overflow: hidden !important;
+  }
+
+  .exp-toggle-enter, .exp-toggle-leave-to {
+    height: 0 !important;
+  }
+
+  .exp-toggle-enter-to, .exp-toggle-leave {
+    height: 230px !important;
+    overflow: visible;
   }
 </style>
