@@ -21,7 +21,8 @@
                @mouseleave="showPopBlock=false" href=""><i class="iconfont">&#xe60f;</i>购物车(0)</a>
             <transition name="toggle">
               <div id="pop-cart-block" @mouseenter="showPopBlock=true"
-                   @mouseleave="showPopBlock=false" v-show="showPopBlock">购物车中还没有商品，赶紧选购吧！
+                   @mouseleave="showPopBlock=false" v-show="showPopBlock">
+                购物车中还没有商品，赶紧选购吧！
               </div>
             </transition>
           </li>
@@ -46,8 +47,8 @@
       <search-box :initTags="searchInitTags"></search-box>
     </div>
     <transition name="exp-toggle">
-    <expand-menu v-show="showExpandMenu" :items="expandMenuCurContent"
-                 @mouseenter="showExpandMenu=true" @mouseleave="showExpandMenu=false"></expand-menu>
+      <expand-menu v-show="showExpandMenu" :items="expandMenuCurContent"
+                 @show="showExpandMenu=true" @disappear="showExpandMenu=false"></expand-menu>
     </transition>
   </div>
 </template>

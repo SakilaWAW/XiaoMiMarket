@@ -1,5 +1,5 @@
 <template>
-  <div class="expand-menu">
+  <div class="expand-menu" @mouseenter="hover" @mouseleave="unhover">
     <ul class="menu-container">
       <li class="menu-item"
           v-for="(item, index) in items"
@@ -21,6 +21,12 @@ export default {
   methods: {
     isOrangeDes(name) {
       return name !== '查看全部';
+    },
+    hover() {
+      if (this.items !== undefined) this.$emit('show');
+    },
+    unhover() {
+      this.$emit('disappear');
     },
   },
 };
