@@ -29,27 +29,29 @@
         </ul>
       </div>
     </div>
-    <div class="site-nav">
-      <div class="site-logo">
-        <a class="logo-container" href="https://www.baidu.com">
-          <img class="mi-logo" src="../assets/mi_logo.png" alt="">
-        </a>
+    <div class="site-nav-container">
+      <div class="site-nav">
+        <div class="site-logo">
+          <a class="logo-container" href="https://www.baidu.com">
+            <img class="mi-logo" src="../assets/mi_logo.png" alt="">
+          </a>
+        </div>
+        <ul class="nav-list">
+          <li class="sub-gg"><a href=""></a></li>
+          <li v-for="(menu, index) in navListMenu" :key="index"
+              @mouseenter="hoverNavList(menu.name)" @mouseleave="showExpandMenu=false">
+            <span>
+              {{ menu.name }}
+            </span>
+          </li>
+        </ul>
+        <search-box :initTags="searchInitTags"></search-box>
       </div>
-      <ul class="nav-list">
-        <li class="sub-gg"><a href=""></a></li>
-        <li v-for="(menu, index) in navListMenu" :key="index"
-            @mouseenter="hoverNavList(menu.name)" @mouseleave="showExpandMenu=false">
-          <span>
-            {{ menu.name }}
-          </span>
-        </li>
-      </ul>
-      <search-box :initTags="searchInitTags"></search-box>
+      <transition name="exp-toggle">
+        <expand-menu v-show="showExpandMenu" :items="expandMenuCurContent"
+                     @show="showExpandMenu=true" @disappear="showExpandMenu=false"></expand-menu>
+      </transition>
     </div>
-    <transition name="exp-toggle">
-      <expand-menu v-show="showExpandMenu" :items="expandMenuCurContent"
-                 @show="showExpandMenu=true" @disappear="showExpandMenu=false"></expand-menu>
-    </transition>
   </div>
 </template>
 
@@ -64,8 +66,8 @@ const expandMenuContent = {
     { topDes: '新品', img: phonePic, name: '红米Note3', bottomDes: '1233元起', hrefPostfix: 'mi5x' },
     { topDes: '新品', img: phonePic, name: '小米7', bottomDes: '2013元起', hrefPostfix: 'mi5x' },
     { topDes: '爆款', img: phonePic, name: '红米4', bottomDes: '1399元起', hrefPostfix: 'mi5x' },
-    { topDes: '', img: phonePic, name: '小米Mix2', bottomDes: '3999元起', hrefPostfix: 'mi5x' },
-    { topDes: '', img: phonePic, name: '小米Mix2', bottomDes: '3999元起', hrefPostfix: 'mi5x' },
+    { topDes: '全面屏', img: phonePic, name: '小米Mix2', bottomDes: '3999元起', hrefPostfix: 'mi5x' },
+    { topDes: '黑科技', img: phonePic, name: '小米Mix3', bottomDes: '3999元起', hrefPostfix: 'mi5x' },
     { topDes: '', img: phonePic, name: '查看全部', bottomDes: '小米手机', hrefPostfix: 'mi5x' },
   ],
   红米: [
@@ -247,6 +249,10 @@ export default {
   }
 
   // 第二导航栏相关
+  .site-nav-container {
+    position: relative;
+    width: 100%;
+  }
   .site-nav {
     margin: 0 auto;
     height: 100px;
@@ -256,13 +262,16 @@ export default {
   .site-logo, .nav-list {
     float: left;
   }
+  .nav-list {
+    position: relative;
+  }
 
   .sub-gg {
     width: 127px;
     height: 80px;
   }
 
-  .nav-list li {
+  .nav-list > li {
     display: inline-block;
     line-height: 100px;
     padding: 0 10px;
@@ -301,5 +310,9 @@ export default {
   .exp-toggle-enter-to, .exp-toggle-leave {
     height: 230px !important;
     overflow: visible;
+  }
+  .expand-menu {
+    position: absolute;
+    top: 100px;
   }
 </style>

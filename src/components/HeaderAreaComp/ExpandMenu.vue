@@ -36,6 +36,7 @@ export default {
   @import '../../assets/css/global';
   $menu-height: 230px;
   .expand-menu {
+    margin: 0 auto;
     width: 100%;
     height: $menu-height;
     background: white;
