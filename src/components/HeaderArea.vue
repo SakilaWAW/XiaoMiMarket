@@ -313,6 +313,7 @@ export default {
   }
   .expand-menu {
     position: absolute;
+    z-index: 10;
     top: 100px;
   }
 </style>
