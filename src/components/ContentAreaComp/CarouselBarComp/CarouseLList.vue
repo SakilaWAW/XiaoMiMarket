@@ -289,7 +289,7 @@ export default {
     width: 234px;
     background: rgba(0,0,0,0.5);
     position: absolute;
-    z-index: 1;
+    z-index: 2;
   }
   .link-lis {
     padding: 20px 0;
