@@ -251,6 +251,7 @@ export default {
   // 第二导航栏相关
   .site-nav-container {
     position: relative;
+    z-index: 10;
     width: 100%;
   }
   .site-nav {
