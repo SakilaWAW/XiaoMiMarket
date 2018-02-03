@@ -89,12 +89,14 @@ export default {
     line-height: 69px;
     text-align: center;
     position: absolute;
+    color: rgba(255,255,255,0.5);
     z-index: 1;
     top: 50%;
     transform: translateY(-50%);
   }
   .left-arrow:hover, .right-arrow:hover {
     background: rgba(0,0,0,0.2);
+    color: white;
     cursor: pointer;
   }
   .left-arrow {
