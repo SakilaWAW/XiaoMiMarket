@@ -1,7 +1,7 @@
 <template>
   <div class="carousel-expand-menu" :style="{width: columnNum*251+2+'px'}"
        @mouseenter="hover" @mouseleave="leave">
-    <!--<ul :style="{ 'column-count': columnNum }">-->
+    <!--<ul :style="{ 'column-count': columnNum }"> columns方法也可以控制列数 但是没法控制每列的个数 残念-->
     <ul>
       <li class="ca-expand-item" v-for="(item, index) in menuData" :key="index"
           @click="jumpTo(item.href)"
