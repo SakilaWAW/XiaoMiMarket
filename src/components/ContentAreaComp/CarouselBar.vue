@@ -1,9 +1,10 @@
 <template>
   <div class="carousel-bar">
     <carousel-l-list></carousel-l-list>
-    <div class="left-arrow" @click="scrollBack"><i class="iconfont">&#xe647;</i></div>
-    <div class="right-arrow" @click="scrollFront"><i class="iconfont">&#xe612;</i></div>
-    <indicate-points></indicate-points>
+    <div class="left-arrow" @click="switchBack"><i class="iconfont">&#xe647;</i></div>
+    <div class="right-arrow" @click="switchFront"><i class="iconfont">&#xe612;</i></div>
+    <indicate-points :total-count="images.length" :currentCount=currentIndex
+                     @switchTo="switchTo"></indicate-points>
     <transition-group tag="div" name="carousel-opa">
       <div class="carousel-image-container" v-show="currentIndex===index"
            v-for="(image, index) in images" :key="index">
@@ -43,13 +44,16 @@ export default {
     };
   },
   methods: {
-    scrollFront() {
+    switchFront() {
       if (this.currentIndex === this.images.length - 1) this.currentIndex = 0;
       else this.currentIndex += 1;
     },
-    scrollBack() {
+    switchBack() {
       if (this.currentIndex === 0) this.currentIndex = this.images.length - 1;
       else this.currentIndex -= 1;
+    },
+    switchTo(idx) {
+      this.currentIndex = idx;
     },
   },
 };
