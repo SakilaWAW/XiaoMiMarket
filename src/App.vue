@@ -28,6 +28,7 @@ export default {
   }
   body {
     min-width: 1240px;
+    user-select:none;
   }
   @font-face {
     font-family: 'iconfont';  /* project id 552033 */
