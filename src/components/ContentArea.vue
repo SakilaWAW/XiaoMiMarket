@@ -1,16 +1,19 @@
 <template>
   <div class="content-area">
     <carousel-bar></carousel-bar>
+    <star-board></star-board>
   </div>
 </template>
 
 <script>
 import CarouselBar from './ContentAreaComp/CarouselBar';
+import StarBoard from './ContentAreaComp/StarBoard';
 
 export default {
   name: 'content-area',
   components: {
     CarouselBar,
+    StarBoard,
   },
 };
 </script>
