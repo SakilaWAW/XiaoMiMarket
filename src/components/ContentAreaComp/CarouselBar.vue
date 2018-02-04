@@ -7,7 +7,8 @@
                      @switchTo="switchTo"></indicate-points>
     <transition-group tag="div" name="carousel-opa">
       <div class="carousel-image-container" v-show="currentIndex===index"
-           v-for="(image, index) in images" :key="index">
+           v-for="(image, index) in images" :key="index"
+           @mouseenter="manualScroll" @mouseleave="autoScroll">
         <img class="carousel-image" :src="image.url" alt="image.alt">
         <a :href="image.jumpTo"></a>
       </div>
@@ -41,6 +42,7 @@ export default {
         { url: caroImg5, alt: 'img5', jumpTo: 'https://item.mi.com/product/10000080.html' },
       ],
       currentIndex: 0,
+      switchHandle: 0,
     };
   },
   methods: {
@@ -55,6 +57,15 @@ export default {
     switchTo(idx) {
       this.currentIndex = idx;
     },
+    autoScroll() {
+      this.switchHandle = setInterval(this.switchFront, 4000);
+    },
+    manualScroll() {
+      clearInterval(this.switchHandle);
+    },
+  },
+  mounted() {
+    this.autoScroll();
   },
 };
 </script>

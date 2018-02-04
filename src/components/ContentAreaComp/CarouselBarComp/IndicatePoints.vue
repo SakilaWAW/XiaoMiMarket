@@ -54,6 +54,9 @@ export default { // 所有下标从0开始算
     font-size: 25px;
   }
   .indicate-points .point-img:hover {
+    color: rgba(255,255,255, 0.5);
+  }
+  .indicate-points .point-img:hover {
     cursor: pointer;
   }
   .point-nor {
