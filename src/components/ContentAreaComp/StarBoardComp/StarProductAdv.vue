@@ -2,7 +2,8 @@
   <div class="star-product-adv">
     <ul class="star-adv-container">
       <li class="star-adv" v-for="(starAdv, index) in starAdvList"
-         :style="{background: `url(${starAdv.img})`}" :key="index"></li>
+         :style="{background: `url(${starAdv.img})`}" :key="index"
+          @click="jumpTo(starAdv.href)"></li>
     </ul>
   </div>
 </template>
@@ -17,16 +18,22 @@ export default {
   data() {
     return {
       starAdvList: [
-        { img: starAdvImg1 },
-        { img: starAdvImg2 },
-        { img: starAdvImg3 },
+        { img: starAdvImg1, href: 'https://item.mi.com/product/10000064.html' },
+        { img: starAdvImg2, href: 'https://item.mi.com/product/10000064.html' },
+        { img: starAdvImg3, href: 'https://item.mi.com/product/10000064.html' },
       ],
     };
+  },
+  methods: {
+    jumpTo(url) {
+      window.location.href = url;
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
+  @import "../../../assets/css/global";
   .star-product-adv {
     display: inline-block;
     height: 100%;
@@ -46,5 +53,7 @@ export default {
   }
   .star-adv:hover {
     cursor: pointer;
+    box-shadow: 5px 5px 10px $shadow-color;
+    transition: box-shadow .3s ease-in-out;
   }
 </style>
