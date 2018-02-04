@@ -22,7 +22,6 @@ export default {
   .star-board {
     width: 100%;
     height: 170px;
-    border: 1px solid red;
     margin-top: 14px;
   }
 </style>

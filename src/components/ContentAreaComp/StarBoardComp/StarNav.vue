@@ -43,11 +43,13 @@ export default {
   @import '../../../assets/css/global';
   $background-grey: #5F5750;
   .star-nav {
+    display: inline-block;
     width: 234px;
     height: 100%;
     padding: 3px;
     box-sizing: border-box;
     background: $background-grey;
+    vertical-align: top;
   }
   .star-nav-lis li{
     text-align: center;
