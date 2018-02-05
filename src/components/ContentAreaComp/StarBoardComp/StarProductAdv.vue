@@ -37,7 +37,7 @@ export default {
   .star-product-adv {
     display: inline-block;
     height: 100%;
-    width: 991px;,
+    width: 991px;
     margin-left: 15px;
   }
   .star-adv-container {
