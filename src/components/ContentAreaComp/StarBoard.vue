@@ -20,6 +20,7 @@ export default {
 
 <style scoped>
   .star-board {
+    font-size: 0;
     width: 100%;
     height: 170px;
     margin-top: 14px;

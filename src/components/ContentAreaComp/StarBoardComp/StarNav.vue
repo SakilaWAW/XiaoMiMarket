@@ -88,6 +88,5 @@ export default {
     bottom: 0;
     width: 60px;
     height: 1px;
-
   }
 </style>
