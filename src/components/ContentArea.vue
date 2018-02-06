@@ -3,6 +3,7 @@
     <div class="overview">
       <carousel-bar></carousel-bar>
       <star-board></star-board>
+      <star-product-list></star-product-list>
     </div>
   </div>
 </template>
@@ -10,12 +11,14 @@
 <script>
 import CarouselBar from './ContentAreaComp/CarouselBar';
 import StarBoard from './ContentAreaComp/StarBoard';
+import StarProductList from './ContentAreaComp/StarProductList';
 
 export default {
   name: 'content-area',
   components: {
     CarouselBar,
     StarBoard,
+    StarProductList,
   },
 };
 </script>
