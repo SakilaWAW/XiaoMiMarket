@@ -46,7 +46,6 @@ export default {
     font-style: normal;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    margin-right: 2px;
   }
   #app {
     font-family: "Helvetica Neue",Helvetica,Arial,
