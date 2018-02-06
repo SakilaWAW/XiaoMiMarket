@@ -1,7 +1,9 @@
 <template>
   <div class="scroll-page">
     <ul class="container" :style="{width: ulWidth + 'px'}">
-      <li class="star-item" v-for="(item, index) in itemList" :key="index">{{ item.desc }}</li>
+      <li class="star-item" v-for="(item, index) in itemList" :key="index">
+
+      </li>
     </ul>
   </div>
 </template>
@@ -24,5 +26,15 @@ export default {
     height: 340px;
     border: 1px solid red;
     overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0;
+  }
+  .star-item {
+    font-size: 16px;
+    display: inline-block;
+    width: 234px;
+    height: 100%;
+    background: red;
   }
 </style>
