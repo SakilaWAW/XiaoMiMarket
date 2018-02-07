@@ -1,8 +1,8 @@
 <template>
   <div class="scroll-page">
-    <ul class="container" :style="{'min-width': ulWidth + 'px'}">
+    <ul class="container" :style="{'min-width': ulWidth + 'px','margin-left': leftMargin + 'px'}">
       <li class="star-item" v-for="(item, index) in itemList" :key="index"
-            :style="{'border-top': `1px solid rgb(${random255()},${random255()},${random255()})`}">
+            :style="{'border-top': `1px solid ${borderColor(index)}`}">
         <a class="item-href-pic" :href="item.href" :style="{background: `url(${item.img})`}"></a>
         <span class="item-name"><a :href="item.href">{{ item.name }}</a></span>
         <span class="item-desc">{{ item.desc }}</span>
@@ -19,18 +19,24 @@ export default {
     'itemList',
     'currentPage',
   ],
+  data() {
+    return {
+      isScrollFront: false,
+      isScrollBack: false,
+    };
+  },
   computed: {
     ulWidth() {
       return (this.itemList.length / 5) * 1240;
     },
-  },
-  methods: {
-    random255() {
-      return Math.floor(Math.random() * 255);
+    leftMargin() {
+      return -(1240 * this.currentPage);
     },
   },
-  watch: {
-    currentPage(newIdx, oldIdx) {
+  methods: {
+    borderColor(idx) {
+      const colorMap = ['red', 'goldenrod', 'blue', 'green', 'pink'];
+      return colorMap[idx % 5];
     },
   },
 };
@@ -52,6 +58,7 @@ export default {
   .container {
     display: block;
     text-align: center;
+    transition: margin-left .8s ease-in-out;
   }
   .star-item {
     box-sizing: border-box;
