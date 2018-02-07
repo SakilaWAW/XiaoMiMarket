@@ -6,7 +6,7 @@
                            @scrollFront="currentPage+=1" @scrollBack="currentPage-=1">
       </left-right-selector>
     </div>
-    <scroll-page :itemList="itemList"></scroll-page>
+    <scroll-page :itemList="itemList" :currentPage="currentPage"></scroll-page>
   </div>
 </template>
 

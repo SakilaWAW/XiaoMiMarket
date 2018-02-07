@@ -1,7 +1,8 @@
 <template>
   <div class="scroll-page">
-    <ul class="container" :style="{width: ulWidth + 'px'}">
-      <li class="star-item" v-for="(item, index) in itemList" :key="index">
+    <ul class="container" :style="{'min-width': ulWidth + 'px'}">
+      <li class="star-item" v-for="(item, index) in itemList" :key="index"
+            :style="{'border-top': `1px solid rgb(${random255()},${random255()},${random255()})`}">
         <a class="item-href-pic" :href="item.href" :style="{background: `url(${item.img})`}"></a>
         <span class="item-name"><a :href="item.href">{{ item.name }}</a></span>
         <span class="item-desc">{{ item.desc }}</span>
@@ -14,10 +15,22 @@
 <script>
 export default {
   name: 'scroll-page',
-  props: ['itemList'],
+  props: [
+    'itemList',
+    'currentPage',
+  ],
   computed: {
     ulWidth() {
       return (this.itemList.length / 5) * 1240;
+    },
+  },
+  methods: {
+    random255() {
+      return Math.floor(Math.random() * 255);
+    },
+  },
+  watch: {
+    currentPage(newIdx, oldIdx) {
     },
   },
 };
@@ -37,9 +50,11 @@ export default {
     margin-bottom: 30px;
   }
   .container {
+    display: block;
     text-align: center;
   }
   .star-item {
+    box-sizing: border-box;
     font-size: 16px;
     display: inline-block;
     width: 234px;
