@@ -9,6 +9,7 @@
     </div>
     <div class="detail-container">
       <div class="detail">
+        <mi-gallery :title="'家电'"></mi-gallery>
       </div>
     </div>
   </div>
@@ -18,6 +19,7 @@
 import CarouselBar from './ContentAreaComp/CarouselBar';
 import StarBoard from './ContentAreaComp/StarBoard';
 import StarProductList from './ContentAreaComp/StarProductList';
+import MiGallery from './ContentAreaComp/MiGallery';
 
 export default {
   name: 'content-area',
@@ -25,6 +27,7 @@ export default {
     CarouselBar,
     StarBoard,
     StarProductList,
+    MiGallery,
   },
 };
 </script>
@@ -42,6 +45,8 @@ export default {
   }
   .detail-container {
     background: #F5F5F5;
-    height: 1000px;
+  }
+  .detail {
+    padding: 60px 0;
   }
 </style>
