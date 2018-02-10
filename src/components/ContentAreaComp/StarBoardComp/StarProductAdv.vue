@@ -51,4 +51,9 @@ export default {
     height: 100%;
     display: inline-block;
   }
+  .shadow-hover:hover {
+    cursor: pointer;
+    box-shadow: 5px 5px 10px $shadow-color;
+    transition: box-shadow .3s ease-in-out;
+  }
 </style>
