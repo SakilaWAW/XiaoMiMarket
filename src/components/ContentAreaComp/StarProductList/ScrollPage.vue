@@ -53,7 +53,7 @@ export default {
     display: flex;
     justify-content: space-between;
     font-size: 0;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
   }
   .container {
     display: block;
