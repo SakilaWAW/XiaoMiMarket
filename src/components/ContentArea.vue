@@ -1,9 +1,15 @@
 <template>
   <div class="content-area">
-    <div class="overview">
-      <carousel-bar></carousel-bar>
-      <star-board></star-board>
-      <star-product-list></star-product-list>
+    <div class="overview-container">
+      <div class="overview">
+        <carousel-bar></carousel-bar>
+        <star-board></star-board>
+        <star-product-list></star-product-list>
+      </div>
+    </div>
+    <div class="detail-container">
+      <div class="detail">
+      </div>
     </div>
   </div>
 </template>
@@ -30,8 +36,12 @@ export default {
     width: 100%;
     background: white;
   }
-  .overview {
+  .overview, .detail {
     width: $site-content-width;
     margin: 0 auto;
+  }
+  .detail-container {
+    background: #F5F5F5;
+    height: 1000px;
   }
 </style>

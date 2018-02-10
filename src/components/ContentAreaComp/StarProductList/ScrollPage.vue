@@ -49,15 +49,14 @@ export default {
   .scroll-page {
     width: 100%;
     height: 340px;
-    overflow: hidden;
-    display: flex;
-    justify-content: space-between;
-    font-size: 0;
+    overflow-x: hidden;
     margin-bottom: 40px;
   }
   .container {
+    font-size: 0;
     display: block;
     text-align: center;
+    height: 100%;
     transition: margin-left .8s ease-in-out;
   }
   .star-item {

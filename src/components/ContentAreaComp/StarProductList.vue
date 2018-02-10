@@ -53,7 +53,7 @@ export default {
 </script>
 
 <style scoped>
-  .star-product-list {
+  .star-product-list .title{
     position: relative;
     margin-top: 35px;
     width: 100%;
