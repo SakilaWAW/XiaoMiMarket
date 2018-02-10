@@ -224,7 +224,7 @@ export default {
     height: 100px;
     overflow: hidden;
     width: 300px;
-    z-index: 1;
+    z-index: 11;
     background: white;
     box-shadow: 8px 0 8px -8px $shadow-color,
     -8px 0 8px -8px $shadow-color,
