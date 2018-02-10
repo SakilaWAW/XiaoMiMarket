@@ -1,7 +1,7 @@
 <template>
   <div class="star-product-adv">
     <ul class="star-adv-container">
-      <li class="star-adv" v-for="(starAdv, index) in starAdvList"
+      <li class="star-adv shadow-hover" v-for="(starAdv, index) in starAdvList"
          :style="{background: `url(${starAdv.img})`}" :key="index"
           @click="jumpTo(starAdv.href)"></li>
     </ul>
@@ -50,10 +50,5 @@ export default {
     width: 317px;
     height: 100%;
     display: inline-block;
-  }
-  .star-adv:hover {
-    cursor: pointer;
-    box-shadow: 5px 5px 10px $shadow-color;
-    transition: box-shadow .3s ease-in-out;
   }
 </style>

@@ -44,4 +44,9 @@ export default {
     background: #F5F5F5;
     height: 1000px;
   }
+  .shadow-hover:hover {
+    cursor: pointer;
+    box-shadow: 5px 5px 10px $shadow-color;
+    transition: box-shadow .3s ease-in-out;
+  }
 </style>
