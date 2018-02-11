@@ -1,7 +1,7 @@
 <template>
   <ul class="gallery-nav">
     <li class="g-nav-item" v-for="(nav, index) in navList" :key="index">
-      <a href="">{{ nav.txt }}</a>
+      <span>{{ nav.txt }}</span>
     </li>
   </ul>
 </template>
@@ -9,6 +9,9 @@
 <script>
 export default {
   name: 'gallery-nav',
+  props: [
+    'currentIdx',
+  ],
   data() {
     return {
       navList: [
