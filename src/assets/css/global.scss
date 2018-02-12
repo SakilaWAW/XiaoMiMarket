@@ -4,3 +4,8 @@ $dark-dark-grey: #A2A2A2;
 $text-origin-grey: #444;
 $site-content-width: 1240px;
 $shadow-grey: #E4E4E4;
+
+.hover-shadow:hover {
+  box-shadow: 5px 5px 10px $shadow-color;
+  transition: box-shadow .3s ease-in-out;
+}

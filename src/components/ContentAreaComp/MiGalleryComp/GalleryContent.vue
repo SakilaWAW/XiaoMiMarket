@@ -1,8 +1,8 @@
 <template>
   <div class="gallery-content">
     <div class="left-content">
-      <div class="l-content-item" v-for="(item, index) in dataMap.leftBar"
-           :href="item.href" :key="index" :style="{background: `url(${item.img})`}"></div>
+      <a class="l-content-item hover-shadow" v-for="(item, index) in dataMap.leftBar"
+           :href="item.href" :key="index" :style="{background: `url(${item.img})`}"></a>
     </div>
     <div class="right-content">
 
@@ -20,6 +20,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  @import "../../../assets/css/global";
   .gallery-content {
     height: 614px;
     width: 100%;
@@ -29,7 +30,7 @@ export default {
     height: 100%;
   }
   .left-content {
-    display: inline-block;
+    display: inline-flex;
     flex-direction: column;
     justify-content: space-between;
     width: 234px;
