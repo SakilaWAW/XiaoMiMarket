@@ -34,7 +34,7 @@ export default {
         ],
         items: [
           [
-            { topDesc: '新品', img: starProduct150, name: '小米笔记本Air13.3英寸', subDesc: '极致轻奢，为所欲为', price: '1122元', comment: '感觉不错，手感超级棒。做工精美，，，电脑刚开机，性能...', author: '来自于 李业兴 的评价' },
+            { topDesc: '新品', img: starProduct150, name: '小米笔记本Air13.3英寸', subDesc: '极致轻奢，为所欲为', price: '1122元', oPrice: '1288元', comment: '感觉不错，手感超级棒。做工精美，，，电脑刚开机，性能...', author: '来自于 李业兴 的评价' },
             { topDesc: '', img: starProduct150, name: '小米笔记本Air13.3英寸', subDesc: '极致轻奢，为所欲为', price: '1122元', comment: '感觉不错，手感超级棒。做工精美，，，电脑刚开机，性能...', author: '来自于 李业兴 的评价' },
             { topDesc: '', img: starProduct150, name: '小米笔记本Air13.3英寸', subDesc: '极致轻奢，为所欲为', price: '1122元', comment: '感觉不错，手感超级棒。做工精美，，，电脑刚开机，性能...', author: '来自于 李业兴 的评价' },
             { topDesc: '', img: starProduct150, name: '小米笔记本Air13.3英寸', subDesc: '极致轻奢，为所欲为', price: '1122元', comment: '感觉不错，手感超级棒。做工精美，，，电脑刚开机，性能...', author: '来自于 李业兴 的评价' },

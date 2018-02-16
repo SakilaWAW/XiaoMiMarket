@@ -5,6 +5,7 @@
     <span class="item-name">{{ currentItem.name }}</span>
     <span class="item-sub-desc">{{ currentItem.subDesc }}</span>
     <span class="item-price">{{ currentItem.price }}</span>
+    <span class="item-o-price" v-if="currentItem.oPrice!==undefined">{{ currentItem.oPrice }}</span>
   </div>
 </template>
 
@@ -54,7 +55,14 @@ export default {
     color: $dark-dark-grey;
   }
   .item-price {
+    display: inline-block;
     font-size: 14px;
     color: $mi-orange;
+  }
+  .item-o-price {
+    display: inline-block;
+    font-size: 14px;
+    color: $shadow-color;
+    text-decoration: line-through;
   }
 </style>
