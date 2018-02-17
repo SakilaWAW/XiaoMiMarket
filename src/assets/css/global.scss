@@ -6,6 +6,6 @@ $site-content-width: 1240px;
 $shadow-grey: #E4E4E4;
 
 .hover-shadow:hover {
-  box-shadow: 5px 5px 10px $shadow-color;
+  box-shadow: 5px 5px 10px #CCC;
   transition: box-shadow .3s ease-in-out;
 }
