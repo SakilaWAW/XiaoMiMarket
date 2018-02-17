@@ -3,7 +3,7 @@
     <div class="title">
       <span class="title-txt">小米明星单品</span>
       <left-right-selector :totalPage="maxPage" :currentPage="currentPage"
-                           @scrollFront="currentPage+=1" @scrollBack="currentPage-=1">
+                           @scrollFront="scrollFront" @scrollBack="scrollBack">
       </left-right-selector>
     </div>
     <scroll-page :itemList="itemList" :currentPage="currentPage"></scroll-page>
@@ -18,12 +18,16 @@ const starProductImg = require('../../assets/star_product.png');
 
 export default {
   name: 'star-product-list',
+  mounted() {
+    this.resetScrollTimer();
+  },
   components: {
     LeftRightSelector,
     ScrollPage,
   },
   data() {
     return {
+      handler: 0,
       currentPage: 0,
       itemList: [
         { img: starProductImg, name: '小米手环2', desc: 'OLED显示屏幕，升级记步算法', subDesc: '149元', href: 'https://item.mi.com/product/10000070.html' },
@@ -47,6 +51,25 @@ export default {
   computed: {
     maxPage() {
       return Math.ceil(this.itemList.length / 5);
+    },
+  },
+  methods: {
+    scroll() {
+      this.currentPage = this.currentPage === this.maxPage - 1 ? 0 : this.currentPage + 1;
+    },
+    scrollFront() {
+      this.currentPage += 1;
+      this.resetScrollTimer();
+    },
+    scrollBack() {
+      this.currentPage -= 1;
+      this.resetScrollTimer();
+    },
+    resetScrollTimer() {
+      window.clearInterval(this.handler);
+      this.handler = window.setInterval(() => {
+        this.scroll();
+      }, 4000);
     },
   },
 };
