@@ -1,7 +1,7 @@
 <template>
   <ul class="gallery-nav">
-    <li class="g-nav-item" v-for="(nav, index) in navList" :key="index">
-      <span>{{ nav.txt }}</span>
+    <li class="g-nav-item" v-for="(type, index) in typeList" :key="index">
+      <span>{{ type }}</span>
     </li>
   </ul>
 </template>
@@ -10,16 +10,11 @@
 export default {
   name: 'gallery-nav',
   props: [
-    'currentIdx',
+    'typeList',
   ],
   data() {
     return {
-      navList: [
-        { txt: '热门' },
-        { txt: '电视影音' },
-        { txt: '电脑' },
-        { txt: '家具' },
-      ],
+      currentIdx: 0,
     };
   },
 };

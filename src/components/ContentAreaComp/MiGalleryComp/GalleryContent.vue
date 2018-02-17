@@ -5,25 +5,37 @@
            :href="item.href" :key="index" :style="{background: `url(${item.img})`}"></a>
     </div>
     <div class="right-content">
-      <gallery-m-item v-for="(currentItem, idx) in currentItems" :key="idx"
-                      :currentItem="currentItem"
-                      :class="{'clear-right-margin': isRightest(idx), 'bottom-margin': hasBottomMargin(idx)}">
+      <gallery-m-item v-for="(item, idx) in currentContent.nor" :key="idx"
+                      :currentItem="item"
+                      :class="{'clear-right-margin': isRightest(idx),
+                                    'bottom-margin': hasBottomMargin(idx)}">
       </gallery-m-item>
+      <div class="addon-container">
+        <gallery-addon-item :addonInfo="currentContent.addOn"></gallery-addon-item>
+        <gallery-more-info :type="currentType"
+                           :url="currentContent.moreUrl"
+                           :moreInfo="true"></gallery-more-info>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import GalleryMItem from './MiGalleryComp/GalleryMItem';
+import GalleryMItem from './GalleryContentComp/GalleryMItem';
+import GalleryAddonItem from './GalleryContentComp/GalleryAddonItem';
+import GalleryMoreInfo from './GalleryContentComp/GalleryMoreInfo';
 
 export default {
   name: 'gallery-content',
   components: {
     GalleryMItem,
+    GalleryAddonItem,
+    GalleryMoreInfo,
   },
   props: [
     'leftBarMap',
-    'currentItems',
+    'currentContent',
+    'currentType',
   ],
   methods: {
     isRightest(idx) {
@@ -66,6 +78,19 @@ export default {
     margin-right: 0!important;
   }
   .bottom-margin {
+    margin-bottom: 14px;
+  }
+  .addon-container {
+    vertical-align: top;
+    display: inline-block;
+    width: 234px;
+    height: 300px;
+  }
+  .gallery-addon-item, .gallery-more-info {
+    height: 143px;
+    width: 100%;
+    background: white;
+    font-size: 14px;
     margin-bottom: 14px;
   }
 </style>
