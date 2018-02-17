@@ -2,7 +2,9 @@
   <div class="mi-gallery">
     <div class="gallery-header">
       <span class="gallery-title">{{ dataList.name }}</span>
-      <gallery-nav :typeList="dataList.types" @pageTo="switchToPage"></gallery-nav>
+      <gallery-nav :typeList="dataList.types"
+                   @pageTo="switchToPage"
+                   :currentIdx="currentIdx"></gallery-nav>
     </div>
     <gallery-content :leftBarMap="dataList.leftBar"
                      :currentContent="currentContent"
@@ -38,7 +40,7 @@ export default {
   },
   methods: {
     switchToPage(idx) {
-      this.currentPage = idx;
+      this.currentIdx = idx;
     },
   },
 };
