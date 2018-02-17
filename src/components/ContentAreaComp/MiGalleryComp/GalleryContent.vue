@@ -2,7 +2,9 @@
   <div class="gallery-content">
     <div class="left-content">
       <a class="l-content-item hover-shadow" v-for="(item, index) in leftBarMap"
-           :href="item.href" :key="index" :style="{background: `url(${item.img})`}"></a>
+         :href="item.href" :key="index"
+         :style="{background: `url(${item.img})`, height: leftBlockHeight}"
+         :class="{'margin-bottom-14': leftBlockHasBottomMargin(index)}"></a>
     </div>
     <div class="right-content">
       <gallery-m-item v-for="(item, idx) in currentContent.nor" :key="idx"
@@ -44,6 +46,14 @@ export default {
     hasBottomMargin(idx) {
       return Math.floor(idx / 4) === 0;
     },
+    leftBlockHasBottomMargin(idx) {
+      return idx !== (this.leftBarMap.length - 1);// 非最后一个就有margin-bottom
+    },
+  },
+  computed: {
+    leftBlockHeight() {
+      return (614 - ((this.leftBarMap.length - 1) * 14)) / this.leftBarMap.length;
+    },
   },
 };
 </script>
@@ -73,6 +83,9 @@ export default {
   }
   .l-content-item {
     height: 100%;
+  }
+  .margin-bottom-14 {
+    margin-bottom: 14px;
   }
   .clear-right-margin {
     margin-right: 0!important;
