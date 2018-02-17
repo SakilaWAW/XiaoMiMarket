@@ -23,9 +23,6 @@ export default {
 
 <style lang="scss" scoped>
   @import "../../../../assets/css/global";
-  .hover-cursor-pointer:hover {
-    cursor: pointer;
-  }
   .container {
     padding-left: 30px;
     position: relative;

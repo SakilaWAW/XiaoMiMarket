@@ -9,3 +9,7 @@ $shadow-grey: #E4E4E4;
   box-shadow: 5px 5px 10px #CCC;
   transition: box-shadow .3s ease-in-out;
 }
+
+.hover-cursor-pointer:hover {
+  cursor: pointer;
+}
