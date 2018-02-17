@@ -29,6 +29,7 @@ export default {
   }
 
   .addon-name {
+    display: block;
     color: black;
     text-overflow: ellipsis;
     overflow: hidden;
