@@ -1,7 +1,7 @@
 <template>
-  <div class="star-product-list">
+  <div class="scroll-board">
     <div class="title">
-      <span class="title-txt">小米明星单品</span>
+      <span class="title-txt">{{ title }}</span>
       <left-right-selector :totalPage="maxPage" :currentPage="currentPage"
                            @scrollFront="scrollFront" @scrollBack="scrollBack">
       </left-right-selector>
@@ -17,10 +17,13 @@ import ScrollPage from './StarProductList/ScrollPage';
 const starProductImg = require('../../assets/star_product.png');
 
 export default {
-  name: 'star-product-list',
+  name: 'scroll-board',
   mounted() {
     this.resetScrollTimer();
   },
+  props: [
+    'title',
+  ],
   components: {
     LeftRightSelector,
     ScrollPage,
@@ -76,7 +79,7 @@ export default {
 </script>
 
 <style scoped>
-  .star-product-list .title{
+  .scroll-board .title{
     position: relative;
     margin-top: 35px;
     width: 100%;

@@ -4,7 +4,7 @@
       <div class="overview">
         <carousel-bar></carousel-bar>
         <star-board></star-board>
-        <star-product-list></star-product-list>
+        <scroll-board :title="'小米明星单品'"></scroll-board>
       </div>
     </div>
     <div class="detail-container">
@@ -19,7 +19,7 @@
 <script>
 import CarouselBar from './ContentAreaComp/CarouselBar';
 import StarBoard from './ContentAreaComp/StarBoard';
-import StarProductList from './ContentAreaComp/StarProductList';
+import ScrollBoard from './ContentAreaComp/ScrollBoard';
 import MiGallery from './ContentAreaComp/MiGallery';
 
 const leftItem1 = require('../assets/left-item1.png');
@@ -33,7 +33,7 @@ export default {
   components: {
     CarouselBar,
     StarBoard,
-    StarProductList,
+    ScrollBoard,
     MiGallery,
   },
   data() {
