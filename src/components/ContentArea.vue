@@ -7,7 +7,10 @@
         <scroll-board :title="'小米明星单品'" :maxPage="starProductMaxPage">
           <scroll-page slot="scrollPage" slot-scope="props"
                        :itemList="starProductItemList"
-                       :currentPage="props.currentPage"></scroll-page>
+                       :currentPage="props.currentPage">
+            <mi-card slot="card" slot-scope="props"
+                     :item="props.item" :index="props.index"></mi-card>
+          </scroll-page>
         </scroll-board>
       </div>
     </div>
@@ -26,6 +29,7 @@ import StarBoard from './ContentAreaComp/StarBoard';
 import ScrollBoard from './ContentAreaComp/ScrollBoard';
 import ScrollPage from './ContentAreaComp/StarProductList/ScrollPage';
 import MiGallery from './ContentAreaComp/MiGallery';
+import MiCard from './ContentAreaComp/CommonComp/MiCard';
 
 const leftItem1 = require('../assets/left-item1.png');
 const leftItem2 = require('../assets/left-item2.png');
@@ -41,6 +45,7 @@ export default {
     StarBoard,
     ScrollBoard,
     ScrollPage,
+    MiCard,
     MiGallery,
   },
   data() {
