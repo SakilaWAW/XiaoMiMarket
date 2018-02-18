@@ -43,8 +43,8 @@ import StarBoard from './ContentAreaComp/StarBoard';
 import ScrollBoard from './ContentAreaComp/ScrollBoard';
 import ScrollPage from './ContentAreaComp/StarProductList/ScrollPage';
 import MiGallery from './ContentAreaComp/MiGallery';
-import MiStarProductCard from './ContentAreaComp/CommonComp/MiStarProductCard';
-import JustForYouCard from './ContentAreaComp/CommonComp/JustForYouCard';
+import MiStarProductCard from './ContentAreaComp/CardComp/MiStarProductCard';
+import JustForYouCard from './ContentAreaComp/CardComp/JustForYouCard';
 
 const leftItem1 = require('../assets/left-item1.png');
 const leftItem2 = require('../assets/left-item2.png');
