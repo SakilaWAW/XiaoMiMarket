@@ -1,5 +1,5 @@
 <template>
-  <div class="mi-card" :style="{'border-top-color': borderColor}">
+  <div class="mi-star-product-card" :style="{'border-top-color': borderColor}">
     <a class="item-href-pic" :href="item.href" :style="{background: `url(${item.img})`}"></a>
     <span class="item-name"><a :href="item.href">{{ item.name }}</a></span>
     <span class="item-desc">{{ item.desc }}</span>
@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: 'mi-card',
+  name: 'mi-star-product-card',
   props: [
     'item',
     'index',
@@ -27,7 +27,7 @@ export default {
   @import '../../../assets/css/global';
   $text-grey: #AAA;
   $shallow-grey: #FAFAFA;
-  .mi-card {
+  .mi-star-product-card {
     border-top: 1px solid black;
     box-sizing: border-box;
     width: 100%;

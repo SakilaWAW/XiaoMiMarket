@@ -21,6 +21,7 @@ export default {
   props: [
     'title',
     'maxPage',
+    'isScroll',
   ],
   components: {
     LeftRightSelector,
@@ -45,9 +46,11 @@ export default {
     },
     resetScrollTimer() {
       window.clearInterval(this.handler);
-      this.handler = window.setInterval(() => {
-        this.scroll();
-      }, 4000);
+      if (this.isScroll) {
+        this.handler = window.setInterval(() => {
+          this.scroll();
+        }, 4000);
+      }
     },
   },
 };

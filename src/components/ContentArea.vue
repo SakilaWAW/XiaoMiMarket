@@ -4,12 +4,14 @@
       <div class="overview">
         <carousel-bar></carousel-bar>
         <star-board></star-board>
-        <scroll-board :title="'小米明星单品'" :maxPage="starProductMaxPage">
+        <scroll-board :title="'小米明星单品'"
+                      :maxPage="starProductMaxPage"
+                      :isScroll="true">
           <scroll-page slot="scrollPage" slot-scope="props"
                        :itemList="starProductItemList"
                        :currentPage="props.currentPage">
-            <mi-card slot="card" slot-scope="props"
-                     :item="props.item" :index="props.index"></mi-card>
+            <mi-star-product-card slot="card" slot-scope="props"
+                     :item="props.item" :index="props.index"></mi-star-product-card>
           </scroll-page>
         </scroll-board>
       </div>
@@ -18,6 +20,16 @@
       <div class="detail">
         <mi-gallery v-for="(dataList, idx) in miGalleryDataList"
                     :dataList="dataList" :key="idx"></mi-gallery>
+        <scroll-board :title="'为你推荐'"
+                      :maxPage="starProductMaxPage"
+                      :isScroll="false">
+          <scroll-page slot="scrollPage" slot-scope="props"
+                       :itemList="starProductItemList"
+                       :currentPage="props.currentPage">
+            <mi-star-product-card slot="card" slot-scope="props"
+                     :item="props.item" :index="props.index"></mi-star-product-card>
+          </scroll-page>
+        </scroll-board>
       </div>
     </div>
   </div>
@@ -29,7 +41,7 @@ import StarBoard from './ContentAreaComp/StarBoard';
 import ScrollBoard from './ContentAreaComp/ScrollBoard';
 import ScrollPage from './ContentAreaComp/StarProductList/ScrollPage';
 import MiGallery from './ContentAreaComp/MiGallery';
-import MiCard from './ContentAreaComp/CommonComp/MiCard';
+import MiStarProductCard from './ContentAreaComp/CommonComp/MiStarProductCard';
 
 const leftItem1 = require('../assets/left-item1.png');
 const leftItem2 = require('../assets/left-item2.png');
@@ -45,7 +57,7 @@ export default {
     StarBoard,
     ScrollBoard,
     ScrollPage,
-    MiCard,
+    MiStarProductCard,
     MiGallery,
   },
   data() {
