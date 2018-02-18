@@ -39,7 +39,7 @@ export default {
     color: black;
   }
   .info {
-    margin: 20px 25px;
+    margin: 35px 25px;
   }
   .comment, .author {
     display: block;

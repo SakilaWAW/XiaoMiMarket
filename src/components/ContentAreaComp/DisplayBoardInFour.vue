@@ -1,7 +1,7 @@
 <template>
   <div class="display-board-in-four">
     <div class="title">{{ title }}</div>
-    <ul class="content">
+    <ul class="content" :style="{height: height + 'px'}">
       <li class="card-container" v-for="(item, idx) in items" :key="idx"
           :class="{'clear-right-margin': !hasRightMargin(idx)}">
         <slot name="card" :item="item"></slot>
@@ -16,6 +16,7 @@ export default {
   props: [
     'title',
     'items',
+    'height',
   ],
   methods: {
     hasRightMargin(idx) {
@@ -31,7 +32,6 @@ export default {
     line-height: 58px;
   }
   .content {
-    height: 415px;
     width: 100%;
     font-size: 0;
   }

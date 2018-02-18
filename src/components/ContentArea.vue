@@ -32,7 +32,7 @@
                                   :item="props.item"></just-for-you-card>
           </scroll-page>
         </scroll-board>
-        <display-board-in-four :title="'热评产品'" :items="hotItemList">
+        <display-board-in-four :height="415" :title="'热评产品'" :items="hotItemList">
           <hot-item-card slot="card" slot-scope="props" :item="props.item"></hot-item-card>
         </display-board-in-four>
       </div>
