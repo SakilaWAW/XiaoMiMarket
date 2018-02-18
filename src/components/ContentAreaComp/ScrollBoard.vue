@@ -6,13 +6,12 @@
                            @scrollFront="scrollFront" @scrollBack="scrollBack">
       </left-right-selector>
     </div>
-    <scroll-page :itemList="itemList" :currentPage="currentPage"></scroll-page>
+    <slot name="scrollPage" :itemList="itemList" :currentPage="currentPage"></slot>
   </div>
 </template>
 
 <script>
 import LeftRightSelector from './StarProductList/LeftRightSelector';
-import ScrollPage from './StarProductList/ScrollPage';
 
 const starProductImg = require('../../assets/star_product.png');
 
@@ -26,7 +25,6 @@ export default {
   ],
   components: {
     LeftRightSelector,
-    ScrollPage,
   },
   data() {
     return {

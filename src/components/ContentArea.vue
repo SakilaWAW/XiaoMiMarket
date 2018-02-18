@@ -4,7 +4,10 @@
       <div class="overview">
         <carousel-bar></carousel-bar>
         <star-board></star-board>
-        <scroll-board :title="'小米明星单品'"></scroll-board>
+        <scroll-board :title="'小米明星单品'">
+          <scroll-page slot="scrollPage" slot-scope="props"
+                       :itemList="props.itemList" :currentPage="props.currentPage"></scroll-page>
+        </scroll-board>
       </div>
     </div>
     <div class="detail-container">
@@ -20,6 +23,7 @@
 import CarouselBar from './ContentAreaComp/CarouselBar';
 import StarBoard from './ContentAreaComp/StarBoard';
 import ScrollBoard from './ContentAreaComp/ScrollBoard';
+import ScrollPage from './ContentAreaComp/StarProductList/ScrollPage';
 import MiGallery from './ContentAreaComp/MiGallery';
 
 const leftItem1 = require('../assets/left-item1.png');
@@ -34,6 +38,7 @@ export default {
     CarouselBar,
     StarBoard,
     ScrollBoard,
+    ScrollPage,
     MiGallery,
   },
   data() {
