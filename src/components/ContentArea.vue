@@ -9,7 +9,8 @@
                       :isScroll="true">
           <scroll-page slot="scrollPage" slot-scope="props"
                        :itemList="starProductItemList"
-                       :currentPage="props.currentPage">
+                       :currentPage="props.currentPage"
+                       :height="340">
             <mi-star-product-card slot="card" slot-scope="props"
                      :item="props.item" :index="props.index"></mi-star-product-card>
           </scroll-page>
@@ -21,13 +22,14 @@
         <mi-gallery v-for="(dataList, idx) in miGalleryDataList"
                     :dataList="dataList" :key="idx"></mi-gallery>
         <scroll-board :title="'为你推荐'"
-                      :maxPage="starProductMaxPage"
+                      :maxPage="justForYouMaxPage"
                       :isScroll="false">
           <scroll-page slot="scrollPage" slot-scope="props"
-                       :itemList="starProductItemList"
-                       :currentPage="props.currentPage">
-            <mi-star-product-card slot="card" slot-scope="props"
-                     :item="props.item" :index="props.index"></mi-star-product-card>
+                       :itemList="justForYouItemList"
+                       :currentPage="props.currentPage"
+                       :height="300">
+            <just-for-you-card slot="card" slot-scope="props"
+                                  :item="props.item"></just-for-you-card>
           </scroll-page>
         </scroll-board>
       </div>
@@ -42,13 +44,15 @@ import ScrollBoard from './ContentAreaComp/ScrollBoard';
 import ScrollPage from './ContentAreaComp/StarProductList/ScrollPage';
 import MiGallery from './ContentAreaComp/MiGallery';
 import MiStarProductCard from './ContentAreaComp/CommonComp/MiStarProductCard';
+import JustForYouCard from './ContentAreaComp/CommonComp/JustForYouCard';
 
 const leftItem1 = require('../assets/left-item1.png');
 const leftItem2 = require('../assets/left-item2.png');
 const leftItem3 = require('../assets/left-item3.png');
 const starProduct150 = require('../assets/star_product150.png');
 const starProduct80 = require('../assets/star_product80.png');
-const starProductImg = require('../assets/star_product.png');
+const starProductImg160 = require('../assets/star_product160.png');
+const starProductImg140 = require('../assets/star_product140.png');
 
 export default {
   name: 'content-area',
@@ -58,6 +62,7 @@ export default {
     ScrollBoard,
     ScrollPage,
     MiStarProductCard,
+    JustForYouCard,
     MiGallery,
   },
   data() {
@@ -386,27 +391,52 @@ export default {
         },
       ],
       starProductItemList: [
-        { img: starProductImg, name: '小米手环2', desc: 'OLED显示屏幕，升级记步算法', subDesc: '149元', href: 'https://item.mi.com/product/10000070.html' },
-        { img: starProductImg, name: '米家扫地机器人', desc: '爱干净，高效完成清扫任务', subDesc: '1699元', href: 'https://item.mi.com/product/10000070.html' },
-        { img: starProductImg, name: '小米手环2', desc: 'OLED显示屏幕，升级记步算法', subDesc: '149元', href: 'https://item.mi.com/product/10000070.html' },
-        { img: starProductImg, name: '米家扫地机器人', desc: '爱干净，高效完成清扫任务', subDesc: '1699元', href: 'https://item.mi.com/product/10000070.html' },
-        { img: starProductImg, name: '小米手环2', desc: 'OLED显示屏幕，升级记步算法', subDesc: '149元', href: 'https://item.mi.com/product/10000070.html' },
-        { img: starProductImg, name: '米家扫地机器人', desc: '爱干净，高效完成清扫任务', subDesc: '1699元', href: 'https://item.mi.com/product/10000070.html' },
-        { img: starProductImg, name: '小米手环2', desc: 'OLED显示屏幕，升级记步算法', subDesc: '149元', href: 'https://item.mi.com/product/10000070.html' },
-        { img: starProductImg, name: '米家扫地机器人', desc: '爱干净，高效完成清扫任务', subDesc: '1699元', href: 'https://item.mi.com/product/10000070.html' },
-        { img: starProductImg, name: '小米手环2', desc: 'OLED显示屏幕，升级记步算法', subDesc: '149元', href: 'https://item.mi.com/product/10000070.html' },
-        { img: starProductImg, name: '米家扫地机器人', desc: '爱干净，高效完成清扫任务', subDesc: '1699元', href: 'https://item.mi.com/product/10000070.html' },
-        { img: starProductImg, name: '米家扫地机器人', desc: '爱干净，高效完成清扫任务', subDesc: '1699元', href: 'https://item.mi.com/product/10000070.html' },
-        { img: starProductImg, name: '小米手环2', desc: 'OLED显示屏幕，升级记步算法', subDesc: '149元', href: 'https://item.mi.com/product/10000070.html' },
-        { img: starProductImg, name: '米家扫地机器人', desc: '爱干净，高效完成清扫任务', subDesc: '1699元', href: 'https://item.mi.com/product/10000070.html' },
-        { img: starProductImg, name: '小米手环2', desc: 'OLED显示屏幕，升级记步算法', subDesc: '149元', href: 'https://item.mi.com/product/10000070.html' },
-        { img: starProductImg, name: '米家扫地机器人', desc: '爱干净，高效完成清扫任务', subDesc: '1699元', href: 'https://item.mi.com/product/10000070.html' },
+        { img: starProductImg160, name: '小米手环2', desc: 'OLED显示屏幕，升级记步算法', subDesc: '149元', href: 'https://item.mi.com/product/10000070.html' },
+        { img: starProductImg160, name: '米家扫地机器人', desc: '爱干净，高效完成清扫任务', subDesc: '1699元', href: 'https://item.mi.com/product/10000070.html' },
+        { img: starProductImg160, name: '小米手环2', desc: 'OLED显示屏幕，升级记步算法', subDesc: '149元', href: 'https://item.mi.com/product/10000070.html' },
+        { img: starProductImg160, name: '米家扫地机器人', desc: '爱干净，高效完成清扫任务', subDesc: '1699元', href: 'https://item.mi.com/product/10000070.html' },
+        { img: starProductImg160, name: '小米手环2', desc: 'OLED显示屏幕，升级记步算法', subDesc: '149元', href: 'https://item.mi.com/product/10000070.html' },
+        { img: starProductImg160, name: '米家扫地机器人', desc: '爱干净，高效完成清扫任务', subDesc: '1699元', href: 'https://item.mi.com/product/10000070.html' },
+        { img: starProductImg160, name: '小米手环2', desc: 'OLED显示屏幕，升级记步算法', subDesc: '149元', href: 'https://item.mi.com/product/10000070.html' },
+        { img: starProductImg160, name: '米家扫地机器人', desc: '爱干净，高效完成清扫任务', subDesc: '1699元', href: 'https://item.mi.com/product/10000070.html' },
+        { img: starProductImg160, name: '小米手环2', desc: 'OLED显示屏幕，升级记步算法', subDesc: '149元', href: 'https://item.mi.com/product/10000070.html' },
+        { img: starProductImg160, name: '米家扫地机器人', desc: '爱干净，高效完成清扫任务', subDesc: '1699元', href: 'https://item.mi.com/product/10000070.html' },
+        { img: starProductImg160, name: '米家扫地机器人', desc: '爱干净，高效完成清扫任务', subDesc: '1699元', href: 'https://item.mi.com/product/10000070.html' },
+        { img: starProductImg160, name: '小米手环2', desc: 'OLED显示屏幕，升级记步算法', subDesc: '149元', href: 'https://item.mi.com/product/10000070.html' },
+        { img: starProductImg160, name: '米家扫地机器人', desc: '爱干净，高效完成清扫任务', subDesc: '1699元', href: 'https://item.mi.com/product/10000070.html' },
+        { img: starProductImg160, name: '小米手环2', desc: 'OLED显示屏幕，升级记步算法', subDesc: '149元', href: 'https://item.mi.com/product/10000070.html' },
+        { img: starProductImg160, name: '米家扫地机器人', desc: '爱干净，高效完成清扫任务', subDesc: '1699元', href: 'https://item.mi.com/product/10000070.html' },
+      ],
+      justForYouItemList: [
+        { img: starProductImg140, name: '红米Note 5A增强版 全网通 6GB大内存', price: '3999元', subDesc: '9192人好评', href: 'https://item.mi.com/product/10000070.html' },
+        { img: starProductImg140, name: '红米Note 5A增强版 全网通 6GB大内存', price: '3999元', subDesc: '9192人好评', href: 'https://item.mi.com/product/10000070.html' },
+        { img: starProductImg140, name: '红米Note 5A增强版 全网通 6GB大内存', price: '3999元', subDesc: '9192人好评', href: 'https://item.mi.com/product/10000070.html' },
+        { img: starProductImg140, name: '红米Note 5A增强版 全网通 6GB大内存', price: '3999元', subDesc: '9192人好评', href: 'https://item.mi.com/product/10000070.html' },
+        { img: starProductImg140, name: '红米Note 5A增强版 全网通 6GB大内存', price: '3999元', subDesc: '9192人好评', href: 'https://item.mi.com/product/10000070.html' },
+        { img: starProductImg140, name: '红米Note 5A增强版 全网通 6GB大内存', price: '3999元', subDesc: '9192人好评', href: 'https://item.mi.com/product/10000070.html' },
+        { img: starProductImg140, name: '红米Note 5A增强版 全网通 6GB大内存', price: '3999元', subDesc: '9192人好评', href: 'https://item.mi.com/product/10000070.html' },
+        { img: starProductImg140, name: '红米Note 5A增强版 全网通 6GB大内存', price: '3999元', subDesc: '9192人好评', href: 'https://item.mi.com/product/10000070.html' },
+        { img: starProductImg140, name: '红米Note 5A增强版 全网通 6GB大内存', price: '3999元', subDesc: '9192人好评', href: 'https://item.mi.com/product/10000070.html' },
+        { img: starProductImg140, name: '红米Note 5A增强版 全网通 6GB大内存', price: '3999元', subDesc: '9192人好评', href: 'https://item.mi.com/product/10000070.html' },
+        { img: starProductImg140, name: '红米Note 5A增强版 全网通 6GB大内存', price: '3999元', subDesc: '9192人好评', href: 'https://item.mi.com/product/10000070.html' },
+        { img: starProductImg140, name: '红米Note 5A增强版 全网通 6GB大内存', price: '3999元', subDesc: '9192人好评', href: 'https://item.mi.com/product/10000070.html' },
+        { img: starProductImg140, name: '红米Note 5A增强版 全网通 6GB大内存', price: '3999元', subDesc: '9192人好评', href: 'https://item.mi.com/product/10000070.html' },
+        { img: starProductImg140, name: '红米Note 5A增强版 全网通 6GB大内存', price: '3999元', subDesc: '9192人好评', href: 'https://item.mi.com/product/10000070.html' },
+        { img: starProductImg140, name: '红米Note 5A增强版 全网通 6GB大内存', price: '3999元', subDesc: '9192人好评', href: 'https://item.mi.com/product/10000070.html' },
+        { img: starProductImg140, name: '红米Note 5A增强版 全网通 6GB大内存', price: '3999元', subDesc: '9192人好评', href: 'https://item.mi.com/product/10000070.html' },
+        { img: starProductImg140, name: '红米Note 5A增强版 全网通 6GB大内存', price: '3999元', subDesc: '9192人好评', href: 'https://item.mi.com/product/10000070.html' },
+        { img: starProductImg140, name: '红米Note 5A增强版 全网通 6GB大内存', price: '3999元', subDesc: '9192人好评', href: 'https://item.mi.com/product/10000070.html' },
+        { img: starProductImg140, name: '红米Note 5A增强版 全网通 6GB大内存', price: '3999元', subDesc: '9192人好评', href: 'https://item.mi.com/product/10000070.html' },
+        { img: starProductImg140, name: '红米Note 5A增强版 全网通 6GB大内存', price: '3999元', subDesc: '9192人好评', href: 'https://item.mi.com/product/10000070.html' },
       ],
     };
   },
   computed: {
     starProductMaxPage() {
       return Math.ceil(this.starProductItemList.length / 5);
+    },
+    justForYouMaxPage() {
+      return Math.ceil(this.justForYouItemList.length / 5);
     },
   },
 };

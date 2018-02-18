@@ -1,5 +1,5 @@
 <template>
-  <div class="scroll-page">
+  <div class="scroll-page" :style="{height: height + 'px'}">
     <ul class="container" :style="{'min-width': ulWidth + 'px','margin-left': leftMargin + 'px'}">
       <li class="star-item" v-for="(item, index) in itemList" :key="index">
         <slot name="card" :item="item" :index="index"></slot>
@@ -14,6 +14,7 @@ export default {
   props: [
     'itemList',
     'currentPage',
+    'height',
   ],
   data() {
     return {
@@ -35,7 +36,6 @@ export default {
 <style lang="scss" scoped>
   .scroll-page {
     width: 100%;
-    height: 340px;
     overflow-x: hidden;
     margin-bottom: 40px;
   }
