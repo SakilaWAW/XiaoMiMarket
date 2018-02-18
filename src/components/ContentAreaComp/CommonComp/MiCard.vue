@@ -1,5 +1,5 @@
 <template>
-  <div class="mi-card" :style="{'border-top': `1px solid ${borderColor(index)}`}">
+  <div class="mi-card" :style="{'border-top-color': borderColor}">
     <a class="item-href-pic" :href="item.href" :style="{background: `url(${item.img})`}"></a>
     <span class="item-name"><a :href="item.href">{{ item.name }}</a></span>
     <span class="item-desc">{{ item.desc }}</span>
@@ -14,10 +14,10 @@ export default {
     'item',
     'index',
   ],
-  methods: {
-    borderColor(idx) {
+  computed: {
+    borderColor() {
       const colorMap = ['red', 'goldenrod', 'blue', 'green', 'pink'];
-      return colorMap[idx % 5];
+      return colorMap[this.index % 5];
     },
   },
 };
@@ -28,6 +28,7 @@ export default {
   $text-grey: #AAA;
   $shallow-grey: #FAFAFA;
   .mi-card {
+    border-top: 1px solid black;
     box-sizing: border-box;
     width: 100%;
     height: 100%;
