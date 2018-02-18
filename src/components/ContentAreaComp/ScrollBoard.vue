@@ -6,14 +6,12 @@
                            @scrollFront="scrollFront" @scrollBack="scrollBack">
       </left-right-selector>
     </div>
-    <slot name="scrollPage" :itemList="itemList" :currentPage="currentPage"></slot>
+    <slot name="scrollPage" :currentPage="currentPage"></slot>
   </div>
 </template>
 
 <script>
 import LeftRightSelector from './StarProductList/LeftRightSelector';
-
-const starProductImg = require('../../assets/star_product.png');
 
 export default {
   name: 'scroll-board',
@@ -22,6 +20,7 @@ export default {
   },
   props: [
     'title',
+    'maxPage',
   ],
   components: {
     LeftRightSelector,
@@ -30,29 +29,7 @@ export default {
     return {
       handler: 0,
       currentPage: 0,
-      itemList: [
-        { img: starProductImg, name: '小米手环2', desc: 'OLED显示屏幕，升级记步算法', subDesc: '149元', href: 'https://item.mi.com/product/10000070.html' },
-        { img: starProductImg, name: '米家扫地机器人', desc: '爱干净，高效完成清扫任务', subDesc: '1699元', href: 'https://item.mi.com/product/10000070.html' },
-        { img: starProductImg, name: '小米手环2', desc: 'OLED显示屏幕，升级记步算法', subDesc: '149元', href: 'https://item.mi.com/product/10000070.html' },
-        { img: starProductImg, name: '米家扫地机器人', desc: '爱干净，高效完成清扫任务', subDesc: '1699元', href: 'https://item.mi.com/product/10000070.html' },
-        { img: starProductImg, name: '小米手环2', desc: 'OLED显示屏幕，升级记步算法', subDesc: '149元', href: 'https://item.mi.com/product/10000070.html' },
-        { img: starProductImg, name: '米家扫地机器人', desc: '爱干净，高效完成清扫任务', subDesc: '1699元', href: 'https://item.mi.com/product/10000070.html' },
-        { img: starProductImg, name: '小米手环2', desc: 'OLED显示屏幕，升级记步算法', subDesc: '149元', href: 'https://item.mi.com/product/10000070.html' },
-        { img: starProductImg, name: '米家扫地机器人', desc: '爱干净，高效完成清扫任务', subDesc: '1699元', href: 'https://item.mi.com/product/10000070.html' },
-        { img: starProductImg, name: '小米手环2', desc: 'OLED显示屏幕，升级记步算法', subDesc: '149元', href: 'https://item.mi.com/product/10000070.html' },
-        { img: starProductImg, name: '米家扫地机器人', desc: '爱干净，高效完成清扫任务', subDesc: '1699元', href: 'https://item.mi.com/product/10000070.html' },
-        { img: starProductImg, name: '米家扫地机器人', desc: '爱干净，高效完成清扫任务', subDesc: '1699元', href: 'https://item.mi.com/product/10000070.html' },
-        { img: starProductImg, name: '小米手环2', desc: 'OLED显示屏幕，升级记步算法', subDesc: '149元', href: 'https://item.mi.com/product/10000070.html' },
-        { img: starProductImg, name: '米家扫地机器人', desc: '爱干净，高效完成清扫任务', subDesc: '1699元', href: 'https://item.mi.com/product/10000070.html' },
-        { img: starProductImg, name: '小米手环2', desc: 'OLED显示屏幕，升级记步算法', subDesc: '149元', href: 'https://item.mi.com/product/10000070.html' },
-        { img: starProductImg, name: '米家扫地机器人', desc: '爱干净，高效完成清扫任务', subDesc: '1699元', href: 'https://item.mi.com/product/10000070.html' },
-      ],
     };
-  },
-  computed: {
-    maxPage() {
-      return Math.ceil(this.itemList.length / 5);
-    },
   },
   methods: {
     scroll() {

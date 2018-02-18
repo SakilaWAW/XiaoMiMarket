@@ -4,15 +4,16 @@
       <div class="overview">
         <carousel-bar></carousel-bar>
         <star-board></star-board>
-        <scroll-board :title="'小米明星单品'">
+        <scroll-board :title="'小米明星单品'" :maxPage="starProductMaxPage">
           <scroll-page slot="scrollPage" slot-scope="props"
-                       :itemList="props.itemList" :currentPage="props.currentPage"></scroll-page>
+                       :itemList="starProductItemList"
+                       :currentPage="props.currentPage"></scroll-page>
         </scroll-board>
       </div>
     </div>
     <div class="detail-container">
       <div class="detail">
-        <mi-gallery v-for="(dataList, idx) in wholeDataList"
+        <mi-gallery v-for="(dataList, idx) in miGalleryDataList"
                     :dataList="dataList" :key="idx"></mi-gallery>
       </div>
     </div>
@@ -31,6 +32,7 @@ const leftItem2 = require('../assets/left-item2.png');
 const leftItem3 = require('../assets/left-item3.png');
 const starProduct150 = require('../assets/star_product150.png');
 const starProduct80 = require('../assets/star_product80.png');
+const starProductImg = require('../assets/star_product.png');
 
 export default {
   name: 'content-area',
@@ -43,7 +45,7 @@ export default {
   },
   data() {
     return {
-      wholeDataList: [
+      miGalleryDataList: [
         {
           name: '家电',
           types: ['家电', '电视影音', '电脑', '家具'],
@@ -366,7 +368,29 @@ export default {
           ],
         },
       ],
+      starProductItemList: [
+        { img: starProductImg, name: '小米手环2', desc: 'OLED显示屏幕，升级记步算法', subDesc: '149元', href: 'https://item.mi.com/product/10000070.html' },
+        { img: starProductImg, name: '米家扫地机器人', desc: '爱干净，高效完成清扫任务', subDesc: '1699元', href: 'https://item.mi.com/product/10000070.html' },
+        { img: starProductImg, name: '小米手环2', desc: 'OLED显示屏幕，升级记步算法', subDesc: '149元', href: 'https://item.mi.com/product/10000070.html' },
+        { img: starProductImg, name: '米家扫地机器人', desc: '爱干净，高效完成清扫任务', subDesc: '1699元', href: 'https://item.mi.com/product/10000070.html' },
+        { img: starProductImg, name: '小米手环2', desc: 'OLED显示屏幕，升级记步算法', subDesc: '149元', href: 'https://item.mi.com/product/10000070.html' },
+        { img: starProductImg, name: '米家扫地机器人', desc: '爱干净，高效完成清扫任务', subDesc: '1699元', href: 'https://item.mi.com/product/10000070.html' },
+        { img: starProductImg, name: '小米手环2', desc: 'OLED显示屏幕，升级记步算法', subDesc: '149元', href: 'https://item.mi.com/product/10000070.html' },
+        { img: starProductImg, name: '米家扫地机器人', desc: '爱干净，高效完成清扫任务', subDesc: '1699元', href: 'https://item.mi.com/product/10000070.html' },
+        { img: starProductImg, name: '小米手环2', desc: 'OLED显示屏幕，升级记步算法', subDesc: '149元', href: 'https://item.mi.com/product/10000070.html' },
+        { img: starProductImg, name: '米家扫地机器人', desc: '爱干净，高效完成清扫任务', subDesc: '1699元', href: 'https://item.mi.com/product/10000070.html' },
+        { img: starProductImg, name: '米家扫地机器人', desc: '爱干净，高效完成清扫任务', subDesc: '1699元', href: 'https://item.mi.com/product/10000070.html' },
+        { img: starProductImg, name: '小米手环2', desc: 'OLED显示屏幕，升级记步算法', subDesc: '149元', href: 'https://item.mi.com/product/10000070.html' },
+        { img: starProductImg, name: '米家扫地机器人', desc: '爱干净，高效完成清扫任务', subDesc: '1699元', href: 'https://item.mi.com/product/10000070.html' },
+        { img: starProductImg, name: '小米手环2', desc: 'OLED显示屏幕，升级记步算法', subDesc: '149元', href: 'https://item.mi.com/product/10000070.html' },
+        { img: starProductImg, name: '米家扫地机器人', desc: '爱干净，高效完成清扫任务', subDesc: '1699元', href: 'https://item.mi.com/product/10000070.html' },
+      ],
     };
+  },
+  computed: {
+    starProductMaxPage() {
+      return Math.ceil(this.starProductItemList.length / 5);
+    },
   },
 };
 </script>
