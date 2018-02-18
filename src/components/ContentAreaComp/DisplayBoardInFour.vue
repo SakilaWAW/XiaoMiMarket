@@ -1,0 +1,47 @@
+<template>
+  <div class="display-board-in-four">
+    <div class="title">{{ title }}</div>
+    <ul class="content">
+      <li class="card-container" v-for="(item, idx) in items" :key="idx"
+          :class="{'clear-right-margin': !hasRightMargin(idx)}">
+        <slot name="card" :item="item"></slot>
+      </li>
+    </ul>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'display-board-in-four',
+  props: [
+    'title',
+    'items',
+  ],
+  methods: {
+    hasRightMargin(idx) {
+      return idx !== this.items.length - 1;
+    },
+  },
+};
+</script>
+
+<style lang="scss" scoped>
+  .title {
+    font-size: 22px;
+    line-height: 58px;
+  }
+  .content {
+    height: 415px;
+    width: 100%;
+    font-size: 0;
+  }
+  .card-container {
+    display: inline-block;
+    width: 295px;
+    height: 100%;
+    margin-right: 20px;
+  }
+  .clear-right-margin {
+    margin-right: 0;
+  }
+</style>

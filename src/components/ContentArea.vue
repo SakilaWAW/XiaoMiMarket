@@ -32,6 +32,9 @@
                                   :item="props.item"></just-for-you-card>
           </scroll-page>
         </scroll-board>
+        <display-board-in-four :title="'热评产品'" :items="hotItemList">
+          <hot-item-card slot="card" slot-scope="props" :item="props.item"></hot-item-card>
+        </display-board-in-four>
       </div>
     </div>
   </div>
@@ -41,6 +44,8 @@
 import CarouselBar from './ContentAreaComp/CarouselBar';
 import StarBoard from './ContentAreaComp/StarBoard';
 import ScrollBoard from './ContentAreaComp/ScrollBoard';
+import DisplayBoardInFour from './ContentAreaComp/DisplayBoardInFour';
+import HotItemCard from './ContentAreaComp/CardComp/HotItemCard';
 import ScrollPage from './ContentAreaComp/StarProductList/ScrollPage';
 import MiGallery from './ContentAreaComp/MiGallery';
 import MiStarProductCard from './ContentAreaComp/CardComp/MiStarProductCard';
@@ -53,6 +58,11 @@ const starProduct150 = require('../assets/star_product150.png');
 const starProduct80 = require('../assets/star_product80.png');
 const starProductImg160 = require('../assets/star_product160.png');
 const starProductImg140 = require('../assets/star_product140.png');
+const hotItem1 = require('../assets/hot-item1.png');
+const hotItem2 = require('../assets/hot-item2.png');
+const hotItem3 = require('../assets/hot-item3.png');
+const hotItem4 = require('../assets/hot-item4.png');
+
 
 export default {
   name: 'content-area',
@@ -64,6 +74,8 @@ export default {
     MiStarProductCard,
     JustForYouCard,
     MiGallery,
+    DisplayBoardInFour,
+    HotItemCard,
   },
   data() {
     return {
@@ -428,6 +440,12 @@ export default {
         { img: starProductImg140, name: '红米Note 5A增强版 全网通 6GB大内存', price: '3999元', subDesc: '9192人好评', href: 'https://item.mi.com/product/10000070.html' },
         { img: starProductImg140, name: '红米Note 5A增强版 全网通 6GB大内存', price: '3999元', subDesc: '9192人好评', href: 'https://item.mi.com/product/10000070.html' },
         { img: starProductImg140, name: '红米Note 5A增强版 全网通 6GB大内存', price: '3999元', subDesc: '9192人好评', href: 'https://item.mi.com/product/10000070.html' },
+      ],
+      hotItemList: [
+        { img: hotItem1, comment: '东西真心不错，用过最好用的插线板，做工外观没得挑剔，3个USB接口很实用，充电快，建议不包邮的应该在商品详情页中具体标注出来，以免产生误解。', author: '来自于 yinyin19891117 的评价', price: '1239元', name: '米家小白只能照相机', href: 'https://www.mi.com/powerstrip/' },
+        { img: hotItem2, comment: '东西真心不错，用过最好用的插线板，做工外观没得挑剔，3个USB接口很实用，充电快，建议不包邮的应该在商品详情页中具体标注出来，以免产生误解。', author: '来自于 yinyin19891117 的评价', price: '1239元', name: '米家小白只能照相机', href: 'https://www.mi.com/powerstrip/' },
+        { img: hotItem3, comment: '东西真心不错，用过最好用的插线板，做工外观没得挑剔，3个USB接口很实用，充电快，建议不包邮的应该在商品详情页中具体标注出来，以免产生误解。', author: '来自于 yinyin19891117 的评价', price: '1239元', name: '米家小白只能照相机', href: 'https://www.mi.com/powerstrip/' },
+        { img: hotItem4, comment: '东西真心不错，用过最好用的插线板，做工外观没得挑剔，3个USB接口很实用，充电快，建议不包邮的应该在商品详情页中具体标注出来，以免产生误解。', author: '来自于 yinyin19891117 的评价', price: '1239元', name: '米家小白只能照相机', href: 'https://www.mi.com/powerstrip/' },
       ],
     };
   },
