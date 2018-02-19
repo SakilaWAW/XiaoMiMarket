@@ -8,6 +8,9 @@ $shadow-grey: #E4E4E4;
 .hover-shadow:hover {
   box-shadow: 5px 5px 10px #CCC;
   transform: translateY(-2px);
+}
+
+.hover-shadow {
   transition: box-shadow .3s ease-in-out, transform .3s ease-in-out;
 }
 
