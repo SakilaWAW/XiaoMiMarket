@@ -38,10 +38,10 @@ export default {
     width: 100%;
     overflow-x: hidden;
     margin-bottom: 40px;
+    padding-top: 2px;
   }
   .container {
     font-size: 0;
-    display: block;
     text-align: center;
     height: 100%;
     transition: margin-left .8s ease-in-out;

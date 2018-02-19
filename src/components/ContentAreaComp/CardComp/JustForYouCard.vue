@@ -21,7 +21,7 @@ export default {
   $text-grey: #AAA;
   $shallow-grey: #FAFAFA;
   .just-for-you-card {
-    overflow: hidden;
+    border-top: 1px solid white;
     box-sizing: border-box;
     width: 100%;
     height: 100%;
