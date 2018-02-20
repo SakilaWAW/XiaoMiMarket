@@ -4,7 +4,7 @@
     <ul class="content" :style="{height: height + 'px'}">
       <li class="card-container" v-for="(item, idx) in items" :key="idx"
           :class="{'clear-right-margin': !hasRightMargin(idx)}">
-        <slot name="card" :item="item"></slot>
+        <slot name="card" :item="item" :idx="idx"></slot>
       </li>
     </ul>
   </div>

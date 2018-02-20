@@ -35,6 +35,10 @@
         <display-board-in-four :height="415" :title="'热评产品'" :items="hotItemList">
           <hot-item-card slot="card" slot-scope="props" :item="props.item"></hot-item-card>
         </display-board-in-four>
+        <display-board-in-four :height="415" :title="'内容'" :items="ContentItemList">
+          <carousel-card slot="card" slot-scope="props"
+                         :item="props.item" :index="props.idx"></carousel-card>
+        </display-board-in-four>
       </div>
     </div>
   </div>
@@ -50,6 +54,7 @@ import ScrollPage from './ContentAreaComp/StarProductList/ScrollPage';
 import MiGallery from './ContentAreaComp/MiGallery';
 import MiStarProductCard from './ContentAreaComp/CardComp/MiStarProductCard';
 import JustForYouCard from './ContentAreaComp/CardComp/JustForYouCard';
+import CarouselCard from './ContentAreaComp/CardComp/CarouselCard';
 
 const leftItem1 = require('../assets/left-item1.png');
 const leftItem2 = require('../assets/left-item2.png');
@@ -62,7 +67,9 @@ const hotItem1 = require('../assets/hot-item1.png');
 const hotItem2 = require('../assets/hot-item2.png');
 const hotItem3 = require('../assets/hot-item3.png');
 const hotItem4 = require('../assets/hot-item4.png');
-
+const contentItem1 = require('../assets/content-item1.png');
+const contentItem2 = require('../assets/content-item2.png');
+const contentItem3 = require('../assets/content-item3.png');
 
 export default {
   name: 'content-area',
@@ -76,6 +83,7 @@ export default {
     MiGallery,
     DisplayBoardInFour,
     HotItemCard,
+    CarouselCard,
   },
   data() {
     return {
@@ -446,6 +454,40 @@ export default {
         { img: hotItem2, comment: '东西真心不错，用过最好用的插线板，做工外观没得挑剔，3个USB接口很实用，充电快，建议不包邮的应该在商品详情页中具体标注出来，以免产生误解。', author: '来自于 yinyin19891117 的评价', price: '1239元', name: '米家小白只能照相机', href: 'https://www.mi.com/powerstrip/' },
         { img: hotItem3, comment: '东西真心不错，用过最好用的插线板，做工外观没得挑剔，3个USB接口很实用，充电快，建议不包邮的应该在商品详情页中具体标注出来，以免产生误解。', author: '来自于 yinyin19891117 的评价', price: '1239元', name: '米家小白只能照相机', href: 'https://www.mi.com/powerstrip/' },
         { img: hotItem4, comment: '东西真心不错，用过最好用的插线板，做工外观没得挑剔，3个USB接口很实用，充电快，建议不包邮的应该在商品详情页中具体标注出来，以免产生误解。', author: '来自于 yinyin19891117 的评价', price: '1239元', name: '米家小白只能照相机', href: 'https://www.mi.com/powerstrip/' },
+      ],
+      ContentItemList: [
+        {
+          title: '图书',
+          spec: { desc: '海量好书，享受精品阅读时光漂亮的中文排版，千万读者选择！', moreBtnTxt: '前往多看阅读' },
+          items: [
+            { title: '哈利·波特与被诅咒的孩子', desc: '“哈利·波特”第八个故事中文版震撼来袭！特别彩排版剧本！', price: '29.37元', img: contentItem1, href: 'http://www.duokan.com/book/120800' },
+            { title: '好吗好的', desc: '畅销作家大冰2016年新书！讲给你听，好吗好的！', price: '17.99元', img: contentItem2, href: 'http://www.duokan.com/book/120800' },
+          ],
+        },
+        {
+          title: 'MIUI主题',
+          spec: { desc: '众多个性主题、百变锁屏与自由桌面让你的手机与众不同！', moreBtnTxt: '前往MIUI主题市场' },
+          items: [
+            { title: '哈利·波特与被诅咒的孩子', desc: '“哈利·波特”第八个故事中文版震撼来袭！特别彩排版剧本！', price: '29.37元', img: contentItem1, href: 'http://www.duokan.com/book/120800' },
+            { title: '好吗好的', desc: '畅销作家大冰2016年新书！讲给你听，好吗好的！', price: '17.99元', img: contentItem3, href: 'http://www.duokan.com/book/120800' },
+          ],
+        },
+        {
+          title: '游戏',
+          spec: { desc: '免费下载海量的手机游戏天天都有现金福利赠送', moreBtnTxt: '前往小米游戏商店' },
+          items: [
+            { title: '哈利·波特与被诅咒的孩子', desc: '“哈利·波特”第八个故事中文版震撼来袭！特别彩排版剧本！', price: '29.37元', img: contentItem3, href: 'http://www.duokan.com/book/120800' },
+            { title: '好吗好的', desc: '畅销作家大冰2016年新书！讲给你听，好吗好的！', price: '17.99元', img: contentItem2, href: 'http://www.duokan.com/book/120800' },
+          ],
+        },
+        {
+          title: '应用',
+          spec: { desc: '帮助小米手机和其他安卓手机用户发现好用的安卓应用', moreBtnTxt: '前往小米应用商店' },
+          items: [
+            { title: '哈利·波特与被诅咒的孩子', desc: '“哈利·波特”第八个故事中文版震撼来袭！特别彩排版剧本！', price: '29.37元', img: contentItem1, href: 'http://www.duokan.com/book/120800' },
+            { title: '好吗好的', desc: '畅销作家大冰2016年新书！讲给你听，好吗好的！', price: '17.99元', img: contentItem2, href: 'http://www.duokan.com/book/120800' },
+          ],
+        },
       ],
     };
   },
