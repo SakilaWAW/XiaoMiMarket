@@ -16,12 +16,6 @@ export default {
     'currentPage',
     'height',
   ],
-  data() {
-    return {
-      isScrollFront: false,
-      isScrollBack: false,
-    };
-  },
   computed: {
     ulWidth() {
       return (this.itemList.length / 5) * 1240;
@@ -45,7 +39,6 @@ export default {
     transition: margin-left .8s ease-in-out;
   }
   .star-item {
-    font-size: 16px;
     display: inline-block;
     width: 234px;
     margin-right: 17.5px;
