@@ -36,9 +36,7 @@ export default {
 <style lang="scss" scoped>
   .scroll-page {
     width: 100%;
-    overflow-x: hidden;
     margin-bottom: 40px;
-    padding-top: 2px;
   }
   .container {
     font-size: 0;

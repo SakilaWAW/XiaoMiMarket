@@ -57,6 +57,9 @@ export default {
 </script>
 
 <style scoped>
+  .scroll-board {
+    overflow-x: hidden;
+  }
   .scroll-board .title{
     position: relative;
     margin-top: 35px;
