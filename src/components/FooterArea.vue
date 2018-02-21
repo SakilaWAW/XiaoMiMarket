@@ -1,5 +1,9 @@
 <template>
   <div id="footer-area">
+    <div class="bottom-nav">
+    </div>
+    <div class="register-info">
+    </div>
   </div>
 </template>
 
