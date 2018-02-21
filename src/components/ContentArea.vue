@@ -520,6 +520,9 @@ export default {
   .detail-container {
     background: #F5F5F5;
   }
+  .display-board-in-four {
+    margin-bottom: 40px;
+  }
   .detail {
     padding: 60px 0;
   }
