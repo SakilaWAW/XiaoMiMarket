@@ -1,10 +1,23 @@
+<!--
+指示点组件
+使用方式：
+indicate-points
+:totalCount     总数
+:currentCount   当前位置(从0开始)
+:norColor       平常的颜色
+:hoverColor     hover时的颜色
+:selectedColor  选中时的颜色
+@switchTo(idx)  切换到idx位置时的操作
+-->
+
 <template>
   <div class="indicate-points">
     <ul class="point-lis">
       <li class="point" v-for="i in totalCount" :key="i">
         <i class="iconfont point-img"
-           :class="(i-1)===currentIdx?'point-selected':'point-nor'"
-           @click="switchTo(i-1)">
+           :style="{color: getColor(i-1)}"
+           @click="switchTo(i-1)"
+           @mouseenter="hover(i-1)" @mouseleave="unhover()">
           &#xe82f;
         </i>
       </li>
@@ -18,7 +31,15 @@ export default { // 所有下标从0开始算
   props: [
     'totalCount',
     'currentCount',
+    'norColor',
+    'hoverColor',
+    'selectedColor',
   ],
+  data() {
+    return {
+      hoverIdx: -1,
+    };
+  },
   computed: {
     currentIdx: {
       get() {
@@ -33,16 +54,29 @@ export default { // 所有下标从0开始算
     switchTo(targetAbsIdx) {
       this.currentIdx = targetAbsIdx;
     },
+    isSelected(idx) {
+      return idx === this.currentIdx;
+    },
+    isHover(idx) {
+      return idx === this.hoverIdx;
+    },
+    getColor(idx) {
+      if (this.isSelected(idx)) return this.selectedColor;
+      else if (this.isHover(idx)) return this.hoverColor;
+      return this.norColor;
+    },
+    hover(idx) {
+      this.hoverIdx = idx;
+    },
+    unhover() {
+      this.hoverIdx = -1;
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
   .indicate-points {
-    position: absolute;
-    bottom: 20px;
-    right: 30px;
-    z-index: 1;
     display: flex;
     flex-direction: row;
   }
@@ -54,15 +88,6 @@ export default { // 所有下标从0开始算
     font-size: 25px;
   }
   .indicate-points .point-img:hover {
-    color: rgba(255,255,255, 0.5);
-  }
-  .indicate-points .point-img:hover {
     cursor: pointer;
-  }
-  .point-nor {
-    color: rgba(0,0,0,0.5);
-  }
-  .point-selected {
-    color: rgba(255,255,255,0.5);
   }
 </style>

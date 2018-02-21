@@ -4,7 +4,10 @@
     <div class="left-arrow" @click="switchBack"><i class="iconfont">&#xe647;</i></div>
     <div class="right-arrow" @click="switchFront"><i class="iconfont">&#xe612;</i></div>
     <indicate-points :total-count="images.length" :currentCount=currentIndex
-                     @switchTo="switchTo"></indicate-points>
+                     @switchTo="switchTo"
+                     :hoverColor="'rgba(255,255,255, 0.5)'"
+                     :norColor="'rgba(0,0,0,0.5)'"
+                     :selectedColor="'rgba(255,255,255, 0.5)'"></indicate-points>
     <transition-group tag="div" name="carousel-opa">
       <div class="carousel-image-container" v-show="currentIndex===index"
            v-for="(image, index) in images" :key="index"
@@ -71,6 +74,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  .indicate-points {
+    position: absolute;
+    bottom: 20px;
+    right: 30px;
+    z-index: 1;
+  }
   .carousel-bar {
     position: relative;
     height: 460px;
