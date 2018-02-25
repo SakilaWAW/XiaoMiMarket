@@ -25,8 +25,15 @@
               </li>
             </ul>
           </div>
+          <div class="dial-service">
+            <span class="phone">{{ contactParas.phone }}</span>
+            <span class="time">{{ contactParas.time }}</span>
+            <a class="contact" :href="contactParas.btnHref">
+              <i class="iconfont btn-icon">&#xe68c;</i>
+              {{ contactParas.btnTxt }}
+            </a>
+          </div>
         </div>
-        <div class="dial-service"></div>
       </div>
       <div class="register-info">
       </div>
@@ -96,6 +103,12 @@ export default {
           ],
         },
       ],
+      contactParas: {
+        phone: '400-100-5678',
+        time: '周一至周日 8:00-18:00\n（仅收市话费）',
+        btnTxt: '在线客服',
+        btnHref: 'https://www.mi.com/service/contact/',
+      },
     };
   },
   methods: {
@@ -166,8 +179,9 @@ export default {
     color: $mi-orange;
   }
   .service-nav {
+    box-sizing: border-box;
     padding: 20px;
-    width: 880px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     position: relative;
@@ -178,7 +192,38 @@ export default {
     width: 1px;
     background: $shadow-grey;
     position: absolute;
-    right: -51px;
+    right: 267px;
     top: 15%;
+  }
+  .dial-service {
+    width: 200px;
+    display: inline-block;
+    text-align: center;
+    margin-left: 30px;
+  }
+  .phone, .time {
+    display: block;
+  }
+  .phone {
+    font-size: 22px;
+    color: $mi-orange;
+    margin: 10px 0;
+  }
+  .time {
+    font-size: 12px;
+    color: $dark-dark-grey;
+    padding: 0 30px;
+    margin-bottom: 15px;
+  }
+  .contact {
+    display: inline-block;
+    color: $mi-orange;
+    border: 1px solid $mi-orange;
+    font-size: 12px;
+    padding: 3px 20px;
+  }
+  .contact:hover {
+    color: white;
+    background: $mi-orange;
   }
 </style>
