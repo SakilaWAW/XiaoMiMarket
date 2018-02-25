@@ -4,7 +4,7 @@
       <div class="overview">
         <carousel-bar></carousel-bar>
         <star-board></star-board>
-        <scroll-board title="'小米明星单品'"
+        <scroll-board title="小米明星单品"
                       :maxPage="starProductMaxPage"
                       :isScroll="true">
           <scroll-page slot="scrollPage" slot-scope="props"
