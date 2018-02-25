@@ -518,7 +518,7 @@ export default {
     margin: 0 auto;
   }
   .detail-container {
-    background: #F5F5F5;
+    background: $background-grey;
   }
   .display-board-in-four {
     margin-bottom: 40px;
