@@ -35,13 +35,26 @@
           </div>
         </div>
       </div>
-      <div class="register-info">
+    </div>
+    <div class="register-info">
+      <div class="container trust-container">
+        <img class="trust-logo" :src="trustInfo.img">
+        <ul class="trust-nav-list">
+          <li v-for="(nav,index) in trustInfo.nav"
+              :key="index"
+              class="nav-item"
+              :class="{'footer-right-line': hasRightSepInFooter(index)}">
+            <a :href="nav.href">{{ nav.txt }}</a>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+const logo = require('../assets/mi_logo.png');
+
 export default {
   name: 'footer-area',
   data() {
@@ -105,15 +118,34 @@ export default {
       ],
       contactParas: {
         phone: '400-100-5678',
-        time: '周一至周日 8:00-18:00\n（仅收市话费）',
+        time: '周一至周日 8:00-18:00 （仅收市话费）',
         btnTxt: '在线客服',
         btnHref: 'https://www.mi.com/service/contact/',
+      },
+      trustInfo: {
+        img: logo,
+        nav: [
+          { txt: '小米商城', href: 'https://www.mi.com/index.html' },
+          { txt: 'MIUI', href: 'https://www.mi.com/index.html' },
+          { txt: '米家', href: 'https://www.mi.com/index.html' },
+          { txt: '米聊', href: 'https://www.mi.com/index.html' },
+          { txt: '多看', href: 'https://www.mi.com/index.html' },
+          { txt: '路由器', href: 'https://www.mi.com/index.html' },
+          { txt: '米粉卡', href: 'https://www.mi.com/index.html' },
+          { txt: '小米天猫店', href: 'https://www.mi.com/index.html' },
+          { txt: '隐私政策', href: 'https://www.mi.com/index.html' },
+          { txt: '问题反馈', href: 'https://www.mi.com/index.html' },
+          { txt: 'Select Region', href: 'https://www.mi.com/index.html' },
+        ],
       },
     };
   },
   methods: {
     hasRightLine(idx) {
       return idx !== this.serviceList.length - 1;
+    },
+    hasRightSepInFooter(idx) {
+      return idx !== this.trustInfo.nav.length - 1;
     },
   },
 };
@@ -225,5 +257,42 @@ export default {
   .contact:hover {
     color: white;
     background: $mi-orange;
+  }
+  .register-info {
+    background: $background-grey;
+  }
+  .trust-container {
+    padding: 30px 20px;
+    box-sizing: border-box;
+  }
+  .nav-item {
+    display: inline-block;
+    font-size: 12px;
+    margin-right: 5px;
+    position: relative;
+    color: $dark-dark-grey;
+    vertical-align: middle;
+  }
+  .footer-right-line::after {
+    content: "";
+    position: absolute;
+    height: 70%;
+    top: 15%;
+    width: 1px;
+    right: -3px;
+    background: $dark-dark-grey;
+  }
+  .nav-item a {
+    color: $dark-dark-grey;
+  }
+  .nav-item a:hover {
+    color: $mi-orange;
+  }
+  .trust-logo {
+    float: left;
+    margin-right: 10px;
+  }
+  .trust-nav-list {
+    font-size: 0;
   }
 </style>
