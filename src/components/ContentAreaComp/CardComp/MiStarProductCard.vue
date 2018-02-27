@@ -44,6 +44,7 @@ export default {
   }
   .item-name a {
     color: black;
+    font-size: 14px;
   }
   .item-desc {
     margin-top: 3px;
@@ -53,5 +54,6 @@ export default {
   }
   .item-sub-desc {
     color: $mi-orange;
+    font-size: 14px;
   }
 </style>
