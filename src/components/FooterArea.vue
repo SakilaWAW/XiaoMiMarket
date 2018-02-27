@@ -47,6 +47,22 @@
             <a :href="nav.href">{{ nav.txt }}</a>
           </li>
         </ul>
+        <p class="register-txt">
+          ©
+          <a href="https://www.mi.com/">mi.com</a>
+          <span> 京ICP证110507号</span>
+          <a href="https://www.mi.com/"> 京ICP备10046444号</a>
+          <a href="https://www.mi.com/"> 京公网安备11010802020134号</a>
+          <a href="https://www.mi.com/"> 京网文[2014]0059-0009号</a>
+          <br>
+          <span>违法和不良信息举报电话：185-0130-1238，本网站所列数据，除特殊说明，所有数据均出自我司实验室测试</span>
+        </p>
+        <a :href="trustLogo.href" v-for="(trustLogo,index) in trustInfo.trustLogos" :key="index">
+          <img class="trust-logo-img" :src="trustLogo.img">
+        </a>
+        <p class="watchword">
+          探索黑科技，小米为发烧而生！
+        </p>
       </div>
     </div>
   </div>
@@ -54,6 +70,7 @@
 
 <script>
 const logo = require('../assets/mi_logo.png');
+const trustLogo = require('../assets/truste.png');
 
 export default {
   name: 'footer-area',
@@ -136,6 +153,13 @@ export default {
           { txt: '隐私政策', href: 'https://www.mi.com/index.html' },
           { txt: '问题反馈', href: 'https://www.mi.com/index.html' },
           { txt: 'Select Region', href: 'https://www.mi.com/index.html' },
+        ],
+        trustLogos: [
+          { img: trustLogo, href: 'https://privacy.truste.com/privacy-seal/validation?rid=4fc28a8c-6822-4980-9c4b-9fdc69b94eb8&lang=zh-cn' },
+          { img: trustLogo, href: 'https://privacy.truste.com/privacy-seal/validation?rid=4fc28a8c-6822-4980-9c4b-9fdc69b94eb8&lang=zh-cn' },
+          { img: trustLogo, href: 'https://privacy.truste.com/privacy-seal/validation?rid=4fc28a8c-6822-4980-9c4b-9fdc69b94eb8&lang=zh-cn' },
+          { img: trustLogo, href: 'https://privacy.truste.com/privacy-seal/validation?rid=4fc28a8c-6822-4980-9c4b-9fdc69b94eb8&lang=zh-cn' },
+          { img: trustLogo, href: 'https://privacy.truste.com/privacy-seal/validation?rid=4fc28a8c-6822-4980-9c4b-9fdc69b94eb8&lang=zh-cn' },
         ],
       },
     };
@@ -294,5 +318,26 @@ export default {
   }
   .trust-nav-list {
     font-size: 0;
+  }
+  .register-txt {
+    font-size: 12px;
+    color: $dark-dark-grey;
+    display: inline-block;
+  }
+  .register-txt a:hover {
+    color: $mi-orange;
+  }
+  .register-txt a {
+    color: $dark-dark-grey;
+  }
+  .trust-logo-img {
+    float: right;
+    margin-left: 5px;
+  }
+  .watchword {
+    font-size: 20px;
+    text-align: center;
+    margin-top: 30px;
+    color: $dark-dark-grey;
   }
 </style>
