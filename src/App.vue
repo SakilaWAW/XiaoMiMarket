@@ -32,12 +32,12 @@ export default {
   }
   @font-face {
     font-family: 'iconfont';  /* project id 552033 */
-    src: url('//at.alicdn.com/t/font_552033_28t0qehgun7jsjor.eot');
-    src: url('//at.alicdn.com/t/font_552033_28t0qehgun7jsjor.eot?#iefix')
+    src: url('//at.alicdn.com/t/font_552033_04yn4gzkmcpx2yb9.eot');
+    src: url('//at.alicdn.com/t/font_552033_04yn4gzkmcpx2yb9.eot?#iefix')
     format('embedded-opentype'),
-    url('//at.alicdn.com/t/font_552033_28t0qehgun7jsjor.woff') format('woff'),
-    url('//at.alicdn.com/t/font_552033_28t0qehgun7jsjor.ttf') format('truetype'),
-    url('//at.alicdn.com/t/font_552033_28t0qehgun7jsjor.svg#iconfont') format('svg');
+    url('//at.alicdn.com/t/font_552033_04yn4gzkmcpx2yb9.woff') format('woff'),
+    url('//at.alicdn.com/t/font_552033_04yn4gzkmcpx2yb9.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_552033_04yn4gzkmcpx2yb9.svg#iconfont') format('svg');
   }
 
   .iconfont {
