@@ -42,6 +42,10 @@
         </display-board-in-four>
       </div>
     </div>
+    <popup-html5-player title="红米工艺视频"
+                        :isHide="!displayH5Video"
+                        @close="closeH5Player"
+                        src=""></popup-html5-player>
   </div>
 </template>
 
@@ -56,6 +60,7 @@ import MiGallery from './ContentAreaComp/MiGallery';
 import MiStarProductCard from './ContentAreaComp/CardComp/MiStarProductCard';
 import JustForYouCard from './ContentAreaComp/CardComp/JustForYouCard';
 import CarouselCard from './ContentAreaComp/CardComp/CarouselCard';
+import PopupHtml5Player from './ContentAreaComp/CommonComp/PopupHtml5Player';
 
 const leftItem1 = require('../assets/left-item1.png');
 const leftItem2 = require('../assets/left-item2.png');
@@ -85,9 +90,12 @@ export default {
     DisplayBoardInFour,
     HotItemCard,
     CarouselCard,
+    PopupHtml5Player,
   },
   data() {
     return {
+      displayH5Video: true,
+      videoSrc: '',
       miGalleryDataList: [
         {
           name: '家电',
@@ -503,12 +511,23 @@ export default {
       return Math.ceil(this.justForYouItemList.length / 5);
     },
   },
+  methods: {
+    closeH5Player() {
+      this.displayH5Video = false;
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
   @import "../assets/css/global";
 
+  .video {
+    height: 536px;
+    width: 880px;
+    display: block;
+    margin: 0 auto;
+  }
   .content-area {
     width: 100%;
     background: white;
