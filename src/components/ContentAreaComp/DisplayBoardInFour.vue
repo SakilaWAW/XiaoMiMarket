@@ -1,6 +1,9 @@
 <template>
   <div class="display-board-in-four">
-    <div class="title">{{ title }}</div>
+    <div class="title">
+      {{ title }}
+      <slot name="sub-title"></slot>
+    </div>
     <ul class="content" :style="{height: height + 'px'}">
       <li class="card-container" v-for="(item, idx) in items" :key="idx"
           :class="{'clear-right-margin': !hasRightMargin(idx)}">
@@ -30,6 +33,7 @@ export default {
   .title {
     font-size: 22px;
     line-height: 58px;
+    position: relative;
   }
   .content {
     width: 100%;
