@@ -40,12 +40,22 @@
                          :item="props.item" :index="props.idx"
                          width="295" height="420"></carousel-card>
         </display-board-in-four>
+        <display-board-in-four height="285" title="视频" :items="videoInfoList">
+          <a slot="sub-title" class="more-video" href="https://www.mi.com/video/">
+            查看全部
+            <i class="iconfont">&#xe61a;</i>
+          </a>
+          <VideoCard slot="card" slot-scope="props"
+                     :item="props.item"
+                     width="295" height="285"
+                     @openSrc="openH5player"></VideoCard>
+        </display-board-in-four>
       </div>
     </div>
     <popup-html5-player title="红米工艺视频"
                         :isHide="!displayH5Video"
                         @close="closeH5Player"
-                        src=""></popup-html5-player>
+                        :videoSrc="videoSrc"></popup-html5-player>
   </div>
 </template>
 
@@ -61,6 +71,7 @@ import MiStarProductCard from './ContentAreaComp/CardComp/MiStarProductCard';
 import JustForYouCard from './ContentAreaComp/CardComp/JustForYouCard';
 import CarouselCard from './ContentAreaComp/CardComp/CarouselCard';
 import PopupHtml5Player from './ContentAreaComp/CommonComp/PopupHtml5Player';
+import VideoCard from './ContentAreaComp/CardComp/VideoCard';
 
 const leftItem1 = require('../assets/left-item1.png');
 const leftItem2 = require('../assets/left-item2.png');
@@ -76,6 +87,10 @@ const hotItem4 = require('../assets/hot-item4.png');
 const contentItem1 = require('../assets/content-item1.png');
 const contentItem2 = require('../assets/content-item2.png');
 const contentItem3 = require('../assets/content-item3.png');
+const video1 = require('../assets/video1.png');
+const video2 = require('../assets/video2.png');
+const video3 = require('../assets/video3.png');
+const video4 = require('../assets/video4.png');
 
 export default {
   name: 'content-area',
@@ -91,11 +106,12 @@ export default {
     HotItemCard,
     CarouselCard,
     PopupHtml5Player,
+    VideoCard,
   },
   data() {
     return {
-      displayH5Video: true,
-      videoSrc: '',
+      displayH5Video: false,
+      videoSrc: 'https://v.mifile.cn/b2c-mimall-media/643918d12d181ab65634cbd4ecd0cf1d.mp4',
       miGalleryDataList: [
         {
           name: '家电',
@@ -501,6 +517,12 @@ export default {
           ],
         },
       ],
+      videoInfoList: [
+        { img: video1, desc: '品质之魂 存于匠心', subDesc: '红米手机品质的工程师访谈', videoSrc: 'https://v.mifile.cn/b2c-mimall-media/643918d12d181ab65634cbd4ecd0cf1d.mp4' },
+        { img: video2, desc: '红米手机工艺视频', subDesc: '红米5 / 红米5 Plus 高颜值机身', videoSrc: 'https://v.mifile.cn/b2c-mimall-media/643918d12d181ab65634cbd4ecd0cf1d.mp4' },
+        { img: video3, desc: '雷军与斯塔克打造全面屏2.0', subDesc: '一场关于小米MIX 2 极致工艺的巅峰对话', videoSrc: 'https://v.mifile.cn/b2c-mimall-media/643918d12d181ab65634cbd4ecd0cf1d.mp4' },
+        { img: video4, desc: 'MIUI 9 理念视频', subDesc: '快如闪电，前所未有的流畅', videoSrc: 'https://v.mifile.cn/b2c-mimall-media/643918d12d181ab65634cbd4ecd0cf1d.mp4' },
+      ],
     };
   },
   computed: {
@@ -514,6 +536,10 @@ export default {
   methods: {
     closeH5Player() {
       this.displayH5Video = false;
+    },
+    openH5player(videoSrc) {
+      this.videoSrc = videoSrc;
+      this.displayH5Video = true;
     },
   },
 };
@@ -547,5 +573,14 @@ export default {
   }
   .mi-gallery {
     margin-bottom: 70px;
+  }
+  .more-video {
+    color: black;
+    position: absolute;
+    right: 0;
+    font-size: 16px;
+  }
+  .more-video:hover {
+    color: $mi-orange;
   }
 </style>

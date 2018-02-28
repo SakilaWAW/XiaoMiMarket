@@ -1,3 +1,16 @@
+<!--
+h5播放器弹出框组件
+使用方法：
+popup-html5-player
+  ...
+
+传参：
+videoSrc  视频地址
+title     弹出框标题
+isHide    控制弹出层的开关
+@close    点击关闭按钮时父控件中的调用函数
+-->
+
 <template>
   <div class="shelter" v-if="!isHide">
     <div class="video-player">
@@ -5,7 +18,7 @@
         <span class="video-title">{{ title }}</span>
         <i class="iconfont close-icon" @click="closeLayer">&#xe632;</i>
       </div>
-      <video controls src="https://v.mifile.cn/b2c-mimall-media/643918d12d181ab65634cbd4ecd0cf1d.mp4"></video>
+      <video controls preload="metadata" :src="videoSrc"></video>
     </div>
   </div>
 </template>
@@ -16,7 +29,7 @@ export default {
   props: [
     'title',
     'isHide',
-    'src',
+    'videoSrc',
   ],
   methods: {
     closeLayer() {
